@@ -6,6 +6,11 @@
     --sab: env(safe-area-inset-bottom, 0px);
     --sal: env(safe-area-inset-left, 0px);
     --sar: env(safe-area-inset-right, 0px);
+
+    --font-display: 'Antonio', 'Bebas Neue', 'Impact', sans-serif;
+    --color-orange-brand: #e85324;
+    --color-card-bg: #ece7db;
+    --color-card-dark: #121212;
   }
 
   * {
@@ -15,7 +20,34 @@
   body {
     overscroll-behavior-y: none;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0e0e0e;
+    color: #f2efe9;
   }
+}
+
+.font-display {
+  font-family: 'Antonio', 'Bebas Neue', 'Impact', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.bg-brand-orange {
+  background-color: #e85324;
+}
+
+.text-brand-orange {
+  color: #e85324;
+}
+
+.border-brand-orange {
+  border-color: #e85324;
+}
+
+.bg-card-cream {
+  background-color: #ece7db;
+}
+
+.text-card-dark {
+  color: #1a1a1a;
 }
 
 /* Custom minimal scrollbar */
@@ -24,9 +56,9 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(20, 20, 20, 0.6);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(63, 63, 70, 0.8);
+  background: rgba(60, 60, 60, 0.8);
   border-radius: 9999px;
 }

@@ -135,3 +135,6 @@ export function playCardDealSound() {
     // Ignore
   }
 }
+
+export const playCardSound = playCardDealSound;
+export const playWorkoutCompleteSound = playGong;

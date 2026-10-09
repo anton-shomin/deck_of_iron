@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, History, Globe, Shield, Smartphone } from 'lucide-react';
+import { Volume2, VolumeX, History, Globe, Shield, Smartphone, Menu, X } from 'lucide-react';
 import { usePWAInstall } from '../../platform/usePWAInstall';
 import { Language, translations } from '../../data/translations';
 
@@ -22,123 +22,149 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const t = translations[lang];
   const { isInstallable, isInstalled, isIOS, install } = usePWAInstall();
+  const [showMenu, setShowMenu] = useState(false);
   const [showIOSGuide, setShowIOSGuide] = useState(false);
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/80 px-3 py-2.5">
+      <header className="sticky top-0 z-40 w-full bg-[#0e0e0e]/95 backdrop-blur-md px-4 py-3">
         <div className="max-w-md mx-auto flex items-center justify-between">
-          {/* Logo & Tactical Badge */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center font-black text-white text-base shadow-lg shadow-red-950/60 border border-red-500/30">
-              ♠
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5 leading-none">
-                <span className="font-black text-sm tracking-wider text-zinc-100">
-                  DECK OF IRON
-                </span>
-                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700/60">
-                  PWA
-                </span>
-              </div>
-              <div className="text-[10px] text-zinc-400 flex items-center gap-1 mt-0.5">
-                {isWakeLockOn ? (
-                  <span className="text-emerald-400 flex items-center gap-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    {t.wakeLockActive}
-                  </span>
-                ) : (
-                  <span className="text-zinc-400 flex items-center gap-0.5">
-                    <Shield className="w-2.5 h-2.5 text-zinc-400" />
-                    WAKE LOCK
-                  </span>
-                )}
-              </div>
-            </div>
+          {/* Main Logo from Design */}
+          <div className="flex items-center">
+            <span className="font-display text-2xl sm:text-3xl font-black tracking-wider text-[#f2efe9]">
+              DECK <span className="text-[#e85324]">OF</span> IRON
+            </span>
           </div>
 
-          {/* Quick Controls */}
-          <div className="flex items-center gap-1.5">
-            {/* Install Button */}
-            {!isInstalled && isInstallable && (
-              <button
-                onClick={install}
-                title={t.installApp}
-                className="flex items-center gap-1 bg-red-600/90 hover:bg-red-500 text-white text-xs font-bold px-2 py-1.5 rounded-lg border border-red-400/40 transition active:scale-95"
-              >
-                <Smartphone className="w-3.5 h-3.5" />
-                <span className="hidden xs:inline">APP</span>
-              </button>
-            )}
-
-            {!isInstalled && isIOS && (
-              <button
-                onClick={() => setShowIOSGuide(true)}
-                title={t.installOnIOS}
-                className="flex items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold px-2 py-1.5 rounded-lg border border-zinc-700 transition active:scale-95"
-              >
-                <Smartphone className="w-3.5 h-3.5 text-red-400" />
-                <span className="text-[11px]">iOS</span>
-              </button>
-            )}
-
-            {/* Sound Toggle */}
-            <button
-              onClick={onToggleSound}
-              title={soundEnabled ? t.soundOn : t.soundOff}
-              className={`p-1.5 rounded-lg border transition active:scale-95 ${
-                soundEnabled
-                  ? 'bg-zinc-900 border-zinc-700 text-zinc-200 hover:text-white'
-                  : 'bg-zinc-900/40 border-zinc-800 text-zinc-400'
-              }`}
-            >
-              {soundEnabled ? (
-                <Volume2 className="w-4 h-4 text-emerald-400" />
-              ) : (
-                <VolumeX className="w-4 h-4 text-zinc-400" />
-              )}
-            </button>
-
-            {/* Language Toggle (RU / EN) */}
-            <button
-              onClick={onToggleLang}
-              title="Переключить язык / Switch Language"
-              className="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-zinc-900 border border-zinc-700 hover:border-zinc-600 text-zinc-200 text-xs font-bold transition active:scale-95"
-            >
-              <Globe className="w-3.5 h-3.5 text-zinc-400" />
-              <span>{lang.toUpperCase()}</span>
-            </button>
-
-            {/* History Modal Trigger */}
-            <button
-              onClick={onOpenHistory}
-              title={t.historyTitle}
-              className="p-1.5 rounded-lg bg-zinc-900 border border-zinc-700 hover:border-zinc-600 text-zinc-200 transition active:scale-95"
-            >
-              <History className="w-4 h-4 text-zinc-300" />
-            </button>
-          </div>
+          {/* Menu Button from Design */}
+          <button
+            onClick={() => setShowMenu(!showMenu)}
+            className="w-10 h-10 rounded-xl bg-[#1c1a17] hover:bg-[#25221d] border border-[#2e2a24] text-[#f2efe9] flex items-center justify-center transition active:scale-95"
+            aria-label="Menu"
+          >
+            {showMenu ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </header>
+
+      {/* Menu Drawer / Overlay */}
+      {showMenu && (
+        <div className="fixed inset-0 z-50 flex flex-col justify-start pt-16 px-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="max-w-md w-full mx-auto bg-[#181614] border border-[#2e2a24] rounded-2xl p-4 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-[#2e2a24] pb-3">
+              <span className="font-display text-lg tracking-wider font-bold text-[#f2efe9]">
+                {lang === 'ru' ? 'МЕНЮ УПРАВЛЕНИЯ' : 'SETTINGS'}
+              </span>
+              <button
+                onClick={() => setShowMenu(false)}
+                className="p-1 rounded-lg text-zinc-400 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              {/* Sound Toggle */}
+              <button
+                onClick={() => {
+                  onToggleSound();
+                }}
+                className={`p-3 rounded-xl border flex items-center gap-2.5 transition text-xs font-bold ${
+                  soundEnabled
+                    ? 'bg-[#26221d] border-[#3d3830] text-[#f2efe9]'
+                    : 'bg-[#141210] border-[#221f1a] text-zinc-500'
+                }`}
+              >
+                {soundEnabled ? (
+                  <Volume2 className="w-4 h-4 text-[#e85324]" />
+                ) : (
+                  <VolumeX className="w-4 h-4 text-zinc-500" />
+                )}
+                <span>{soundEnabled ? t.soundOn : t.soundOff}</span>
+              </button>
+
+              {/* Language Toggle */}
+              <button
+                onClick={onToggleLang}
+                className="p-3 rounded-xl bg-[#26221d] border border-[#3d3830] text-[#f2efe9] flex items-center gap-2.5 transition text-xs font-bold"
+              >
+                <Globe className="w-4 h-4 text-zinc-400" />
+                <span>{lang === 'ru' ? 'Русский' : 'English'}</span>
+              </button>
+
+              {/* History Button */}
+              <button
+                onClick={() => {
+                  setShowMenu(false);
+                  onOpenHistory();
+                }}
+                className="col-span-2 p-3 rounded-xl bg-[#26221d] border border-[#3d3830] text-[#f2efe9] flex items-center justify-between transition text-xs font-bold"
+              >
+                <div className="flex items-center gap-2.5">
+                  <History className="w-4 h-4 text-[#e85324]" />
+                  <span>{t.historyTitle}</span>
+                </div>
+                <span className="text-[10px] text-zinc-400">›</span>
+              </button>
+
+              {/* PWA Install */}
+              {!isInstalled && isInstallable && (
+                <button
+                  onClick={() => {
+                    install();
+                    setShowMenu(false);
+                  }}
+                  className="col-span-2 p-3 rounded-xl bg-[#e85324] text-white flex items-center justify-center gap-2 font-bold text-xs uppercase"
+                >
+                  <Smartphone className="w-4 h-4" />
+                  <span>{t.installApp}</span>
+                </button>
+              )}
+
+              {!isInstalled && isIOS && (
+                <button
+                  onClick={() => {
+                    setShowIOSGuide(true);
+                    setShowMenu(false);
+                  }}
+                  className="col-span-2 p-3 rounded-xl bg-[#26221d] border border-[#3d3830] text-[#f2efe9] flex items-center justify-between text-xs font-bold"
+                >
+                  <div className="flex items-center gap-2">
+                    <Smartphone className="w-4 h-4 text-[#e85324]" />
+                    <span>{t.installOnIOS}</span>
+                  </div>
+                </button>
+              )}
+            </div>
+
+            {/* Wake lock status */}
+            <div className="pt-2 border-t border-[#2e2a24] text-[11px] text-zinc-400 flex items-center justify-between">
+              <span>{lang === 'ru' ? 'Экран включен:' : 'Wake Lock:'}</span>
+              <span className={isWakeLockOn ? 'text-emerald-400 font-bold' : 'text-zinc-500'}>
+                {isWakeLockOn ? (lang === 'ru' ? 'Активен' : 'Active') : (lang === 'ru' ? 'Выключен' : 'Off')}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* iOS Safari Guide Modal */}
       {showIOSGuide && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="w-full max-w-sm rounded-2xl bg-zinc-900 border border-zinc-700 p-5 shadow-2xl text-zinc-100">
+          <div className="w-full max-w-sm rounded-2xl bg-[#181614] border border-[#2e2a24] p-5 shadow-2xl text-[#f2efe9]">
             <div className="flex items-center gap-2 mb-3">
-              <div className="p-2 rounded-lg bg-red-600/20 text-red-400">
+              <div className="p-2 rounded-lg bg-[#e85324]/20 text-[#e85324]">
                 <Smartphone className="w-5 h-5" />
               </div>
               <h3 className="text-base font-bold text-white">{t.iosInstallGuideTitle}</h3>
             </div>
-            <div className="space-y-2.5 text-xs text-zinc-300 bg-zinc-950 p-3.5 rounded-xl border border-zinc-800">
+            <div className="space-y-2.5 text-xs text-zinc-300 bg-[#100f0d] p-3.5 rounded-xl border border-[#24211d]">
               <p>{t.iosInstallGuideStep1}</p>
               <p>{t.iosInstallGuideStep2}</p>
             </div>
             <button
               onClick={() => setShowIOSGuide(false)}
-              className="mt-4 w-full rounded-xl bg-zinc-800 hover:bg-zinc-700 py-2.5 text-xs font-bold text-white transition active:scale-98"
+              className="mt-4 w-full rounded-xl bg-[#26221d] hover:bg-[#322d27] py-2.5 text-xs font-bold text-white transition active:scale-98"
             >
               {t.close}
             </button>

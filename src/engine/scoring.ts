@@ -9,14 +9,34 @@ export function calculateCardTonnage(card: Card, config: SessionConfig): number 
   return load.kg * card.reps * load.count;
 }
 
-export function calculateTotalCleanDeckReps(aceValue: 1 | 11): number {
+export function calculateTotalCleanDeckReps(aceValue: number): number {
   // 2..9 = 44 reps
   // 10, J, Q, K = 40 reps
-  // Ace = aceValue (11 or 1)
+  // Ace = aceValue (11, 1, or 15)
   // Per suit = 44 + 40 + aceValue = 84 + aceValue
   // Total 4 suits = 4 * (84 + aceValue)
   // With Ace=11 => 4 * 95 = 380
   return 4 * (44 + 40 + aceValue);
+}
+
+export function calculateDeckTotalReps(aceValue: number, jokersCount: number = 0): number {
+  return calculateTotalCleanDeckReps(aceValue);
+}
+
+export function calculateDeckTotalTonnage(
+  loads: Record<Suit, { kg: number; count: number }>,
+  aceValue: number
+): number {
+  const repsPerSuit = 44 + 40 + aceValue; // e.g. 95
+  let total = 0;
+  const suits: Suit[] = ['S', 'H', 'D', 'C'];
+  for (const s of suits) {
+    const l = loads[s];
+    if (l) {
+      total += repsPerSuit * l.kg * l.count;
+    }
+  }
+  return total;
 }
 
 export function formatDuration(seconds: number): string {

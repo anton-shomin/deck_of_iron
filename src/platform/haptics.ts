@@ -25,3 +25,11 @@ export function triggerCountdownHaptic() {
 export function triggerGongHaptic() {
   triggerHaptic([100, 50, 150]);
 }
+
+export function triggerHapticFeedback(type?: string) {
+  if (type === 'notificationSuccess') {
+    triggerGongHaptic();
+  } else {
+    triggerCardHaptic();
+  }
+}
