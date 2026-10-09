@@ -62,6 +62,12 @@ export default function App() {
   const [activeDeck, setActiveDeck] = useState<Card[]>([]);
   const [workoutStartIndex, setWorkoutStartIndex] = useState<number>(0);
   const [workoutInitialSeconds, setWorkoutInitialSeconds] = useState<number>(0);
+  const [workoutInitialStats, setWorkoutInitialStats] = useState<{
+    totalReps?: number;
+    totalTonnage?: number;
+    suitReps?: Record<Suit, number>;
+    jokersCompleted?: number;
+  } | undefined>(undefined);
 
   // Completed workout summary
   const [workoutSummary, setWorkoutSummary] = useState<{
@@ -100,6 +106,12 @@ export default function App() {
       setActiveDeck(saved.deck);
       setWorkoutStartIndex(saved.currentIndex);
       setWorkoutInitialSeconds(saved.elapsedSeconds);
+      setWorkoutInitialStats({
+        totalReps: saved.totalRepsAccumulated,
+        totalTonnage: saved.totalTonnageAccumulated,
+        suitReps: saved.suitRepsAccumulated,
+        jokersCompleted: saved.jokersCompleted,
+      });
       setCurrentScreen('WORKOUT');
       requestWakeLock().then(setIsWakeLockOn);
     }
@@ -126,6 +138,7 @@ export default function App() {
     setActiveDeck(finalDeck);
     setWorkoutStartIndex(0);
     setWorkoutInitialSeconds(0);
+    setWorkoutInitialStats(undefined);
     setCurrentScreen('WORKOUT');
   };
 
@@ -193,6 +206,7 @@ export default function App() {
             deck={activeDeck}
             initialIndex={workoutStartIndex}
             initialElapsedSeconds={workoutInitialSeconds}
+            initialStats={workoutInitialStats}
             config={config}
             exercises={exercises}
             onFinishWorkout={handleFinishWorkout}

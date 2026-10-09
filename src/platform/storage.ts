@@ -46,6 +46,10 @@ export interface ActiveSessionBackup {
   currentIndex: number;
   startTimestamp: number;
   elapsedSeconds: number;
+  totalRepsAccumulated?: number;
+  totalTonnageAccumulated?: number;
+  suitRepsAccumulated?: Record<Suit, number>;
+  jokersCompleted?: number;
 }
 
 export function saveActiveSession(session: ActiveSessionBackup | null): void {

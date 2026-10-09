@@ -16,6 +16,12 @@ interface WorkoutHUDProps {
   deck: Card[];
   initialIndex?: number;
   initialElapsedSeconds?: number;
+  initialStats?: {
+    totalReps?: number;
+    totalTonnage?: number;
+    suitReps?: Record<Suit, number>;
+    jokersCompleted?: number;
+  };
   config: SessionConfig;
   exercises: Exercise[];
   onFinishWorkout: (summary: {
@@ -35,6 +41,7 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
   deck,
   initialIndex = 0,
   initialElapsedSeconds = 0,
+  initialStats,
   config,
   exercises,
   onFinishWorkout,
@@ -56,15 +63,23 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
 
   // Completed metrics state
   const [completedCardsCount, setCompletedCardsCount] = useState<number>(initialIndex);
-  const [totalRepsAccumulated, setTotalRepsAccumulated] = useState<number>(0);
-  const [totalTonnageAccumulated, setTotalTonnageAccumulated] = useState<number>(0);
-  const [jokersCompleted, setJokersCompleted] = useState<number>(0);
-  const [suitRepsAccumulated, setSuitRepsAccumulated] = useState<Record<Suit, number>>({
-    S: 0,
-    H: 0,
-    D: 0,
-    C: 0,
-  });
+  const [totalRepsAccumulated, setTotalRepsAccumulated] = useState<number>(
+    initialStats?.totalReps ?? 0
+  );
+  const [totalTonnageAccumulated, setTotalTonnageAccumulated] = useState<number>(
+    initialStats?.totalTonnage ?? 0
+  );
+  const [jokersCompleted, setJokersCompleted] = useState<number>(
+    initialStats?.jokersCompleted ?? 0
+  );
+  const [suitRepsAccumulated, setSuitRepsAccumulated] = useState<Record<Suit, number>>(
+    initialStats?.suitReps ?? {
+      S: 0,
+      H: 0,
+      D: 0,
+      C: 0,
+    }
+  );
 
   const currentCard: Card | undefined = deck[currentIndex];
 
@@ -94,77 +109,124 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
       currentIndex,
       startTimestamp: startTimeRef.current,
       elapsedSeconds,
-    });
-  }, [config, deck, currentIndex, elapsedSeconds]);
-
-  // Handle completion of entire deck
-  const handleCompleteDeck = useCallback(() => {
-    clearActiveSession();
-    playGong();
-    onFinishWorkout({
-      durationSeconds: elapsedSeconds,
-      completedCards: completedCardsCount,
-      totalCards: deck.length,
-      totalReps: totalRepsAccumulated,
-      suitReps: suitRepsAccumulated,
-      totalTonnageKg: totalTonnageAccumulated,
+      totalRepsAccumulated,
+      totalTonnageAccumulated,
+      suitRepsAccumulated,
       jokersCompleted,
     });
   }, [
+    config,
+    deck,
+    currentIndex,
     elapsedSeconds,
-    completedCardsCount,
-    deck.length,
     totalRepsAccumulated,
-    suitRepsAccumulated,
     totalTonnageAccumulated,
+    suitRepsAccumulated,
     jokersCompleted,
-    onFinishWorkout,
   ]);
 
+  // Handle completion of entire deck
+  const handleCompleteDeck = useCallback(
+    (finalStats?: {
+      completedCards?: number;
+      totalReps?: number;
+      suitReps?: Record<Suit, number>;
+      totalTonnageKg?: number;
+      jokersCompleted?: number;
+    }) => {
+      clearActiveSession();
+      playGong();
+      onFinishWorkout({
+        durationSeconds: elapsedSeconds,
+        completedCards: finalStats?.completedCards ?? completedCardsCount,
+        totalCards: deck.length,
+        totalReps: finalStats?.totalReps ?? totalRepsAccumulated,
+        suitReps: finalStats?.suitReps ?? suitRepsAccumulated,
+        totalTonnageKg: finalStats?.totalTonnageKg ?? totalTonnageAccumulated,
+        jokersCompleted: finalStats?.jokersCompleted ?? jokersCompleted,
+      });
+    },
+    [
+      elapsedSeconds,
+      completedCardsCount,
+      deck.length,
+      totalRepsAccumulated,
+      suitRepsAccumulated,
+      totalTonnageAccumulated,
+      jokersCompleted,
+      onFinishWorkout,
+    ]
+  );
+
   // Advance to next card
-  const advanceCard = useCallback((jokerStats?: { reps: number; tonnageKg: number }) => {
-    if (!currentCard) {
-      handleCompleteDeck();
-      return;
-    }
-
-    // Accumulate stats for current card
-    if (currentCard.rank === 'JOKER') {
-      setJokersCompleted((prev) => prev + 1);
-      if (jokerStats) {
-        setTotalRepsAccumulated((prev) => prev + jokerStats.reps);
-        setTotalTonnageAccumulated((prev) => prev + jokerStats.tonnageKg);
+  const advanceCard = useCallback(
+    (jokerStats?: { reps: number; tonnageKg: number }) => {
+      if (!currentCard) {
+        handleCompleteDeck();
+        return;
       }
-    } else if (currentCard.suit) {
-      const reps = currentCard.reps;
-      const tonnage = calculateCardTonnage(currentCard, config);
-      setTotalRepsAccumulated((prev) => prev + reps);
-      setSuitRepsAccumulated((prev) => ({
-        ...prev,
-        [currentCard.suit!]: prev[currentCard.suit!] + reps,
-      }));
-      setTotalTonnageAccumulated((prev) => prev + tonnage);
-    }
 
-    const nextIdx = currentIndex + 1;
-    setCompletedCardsCount(nextIdx);
+      // Accumulate stats for current card
+      let newTotalReps = totalRepsAccumulated;
+      let newTotalTonnage = totalTonnageAccumulated;
+      let newJokersCompleted = jokersCompleted;
+      const newSuitReps = { ...suitRepsAccumulated };
 
-    playCardDealSound();
-    triggerCardHaptic();
+      if (currentCard.rank === 'JOKER') {
+        newJokersCompleted += 1;
+        if (jokerStats) {
+          newTotalReps += jokerStats.reps;
+          newTotalTonnage += jokerStats.tonnageKg;
+        }
+      } else if (currentCard.suit) {
+        const reps = currentCard.reps;
+        const tonnage = calculateCardTonnage(currentCard, config);
+        newTotalReps += reps;
+        newSuitReps[currentCard.suit] = (newSuitReps[currentCard.suit] || 0) + reps;
+        newTotalTonnage += tonnage;
+      }
 
-    if (nextIdx >= deck.length) {
-      handleCompleteDeck();
-      return;
-    }
+      const nextIdx = currentIndex + 1;
 
-    setCurrentIndex(nextIdx);
+      playCardDealSound();
+      triggerCardHaptic();
 
-    // If next card is a joker, open joker modal directly
-    const nextCard = deck[nextIdx];
-    if (nextCard && nextCard.rank === 'JOKER') {
-      setShowJokerModal(true);
-    }
-  }, [currentCard, currentIndex, deck, config, handleCompleteDeck]);
+      if (nextIdx >= deck.length) {
+        handleCompleteDeck({
+          completedCards: deck.length,
+          totalReps: newTotalReps,
+          suitReps: newSuitReps,
+          totalTonnageKg: newTotalTonnage,
+          jokersCompleted: newJokersCompleted,
+        });
+        return;
+      }
+
+      setJokersCompleted(newJokersCompleted);
+      setTotalRepsAccumulated(newTotalReps);
+      setSuitRepsAccumulated(newSuitReps);
+      setTotalTonnageAccumulated(newTotalTonnage);
+      setCompletedCardsCount(nextIdx);
+      setCurrentIndex(nextIdx);
+
+      // If next card is a joker, open joker modal directly
+      const nextCard = deck[nextIdx];
+      if (nextCard && nextCard.rank === 'JOKER') {
+        setShowJokerModal(true);
+      }
+    },
+    [
+      currentCard,
+      currentIndex,
+      deck,
+      config,
+      totalRepsAccumulated,
+      totalTonnageAccumulated,
+      jokersCompleted,
+      suitRepsAccumulated,
+      handleCompleteDeck,
+    ]
+  );
 
   // User hits "DONE / NEXT CARD"
   const handleDoneClick = () => {
