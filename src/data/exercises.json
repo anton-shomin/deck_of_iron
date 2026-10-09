@@ -1,0 +1,746 @@
+[
+  {
+    "id": "body_pushups",
+    "suit": "S",
+    "tier": 1,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Классические отжимания",
+    "nameEn": "Classic Push-ups",
+    "musclesRu": "Грудь, передняя дельта, трицепс",
+    "musclesEn": "Chest, anterior deltoids, triceps",
+    "cuesRu": [
+      "Локти под углом 45 градусов к корпусу",
+      "Прямая линия от затылка до пяток",
+      "Полное касание грудью пола и фиксация вверху"
+    ],
+    "cuesEn": [
+      "Elbows at 45 degrees relative to torso",
+      "Rigid straight line from neck to heels",
+      "Full chest tap to floor and lock out at top"
+    ],
+    "commonMistakeRu": "Прогиб в пояснице и разведение локтей в стороны под 90°",
+    "commonMistakeEn": "Sagging lower back and flaring elbows wide at 90 degrees",
+    "youtubeQuery": "правильные классические отжимания техника"
+  },
+  {
+    "id": "body_diamond_pushups",
+    "suit": "S",
+    "tier": 2,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Узкие (алмазные) отжимания",
+    "nameEn": "Diamond Push-ups",
+    "musclesRu": "Трицепс, внутренняя часть груди, кор",
+    "musclesEn": "Triceps, inner chest, core",
+    "cuesRu": [
+      "Большие и указательные пальцы соприкасаются ромбом",
+      "Локти прижаты ближе к рёбрам",
+      "Опускание грудью точно к центру ромба"
+    ],
+    "cuesEn": [
+      "Thumbs and index fingers form a diamond shape",
+      "Keep elbows tucked close to ribs",
+      "Lower chest squarely to center of the diamond"
+    ],
+    "commonMistakeRu": "Разведение локтей наружу, перегружающее плечевой сустав",
+    "commonMistakeEn": "Flaring elbows outward, straining the shoulder capsule",
+    "youtubeQuery": "алмазные отжимания техника"
+  },
+  {
+    "id": "body_tyson_pushups",
+    "suit": "S",
+    "tier": 3,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Отжимания Тайсона (Bad Boy)",
+    "nameEn": "Tyson Push-ups (Bad Boy)",
+    "musclesRu": "Грудь, плечи, трицепс, квадрицепсы, пресс",
+    "musclesEn": "Chest, deltoids, triceps, quads, core",
+    "cuesRu": [
+      "Из нижнего положения отжимания подать таз назад к пяткам согнув колени",
+      "Мощная взрывная подача вперёд в отжимание",
+      "Пружинистый ритм без паузы в средней точке"
+    ],
+    "cuesEn": [
+      "From bottom push-up, drive hips back toward heels with bent knees",
+      "Explode dynamically forward into next push-up",
+      "Spring-like continuous tempo without resting in the middle"
+    ],
+    "commonMistakeRu": "Отрыв ладоней от пола или задирание таза вверх горкой",
+    "commonMistakeEn": "Lifting palms off floor or hiking hips too high like downward dog",
+    "youtubeQuery": "отжимания тайсона bad boy pushups"
+  },
+  {
+    "id": "body_classic_burpees",
+    "suit": "S",
+    "tier": 4,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Классические бёрпи",
+    "nameEn": "Classic Burpees",
+    "musclesRu": "Всё тело, кардиореспираторная выносливость",
+    "musclesEn": "Full body, cardio endurance",
+    "cuesRu": [
+      "Упор лёжа, касание грудью и бёдрами пола",
+      "Взрывной подъём прыжком на всю стопу",
+      "Хлопок над головой с выпрямлением корпуса в воздухе"
+    ],
+    "cuesEn": [
+      "Drop to pushup plank, touch chest and thighs to floor",
+      "Explosively snap feet under hips on flat soles",
+      "Jump upright with an overhead clap"
+    ],
+    "commonMistakeRu": "Приземление только на носки и залом поясницы при отрыве",
+    "commonMistakeEn": "Landing on tiptoes and arching lower back when pushing up",
+    "youtubeQuery": "бёрпи правильная техника"
+  },
+  {
+    "id": "body_navy_seal_burpees",
+    "suit": "S",
+    "tier": 5,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Бёрпи морских котиков (Navy SEAL)",
+    "nameEn": "Navy SEAL Burpees",
+    "musclesRu": "Грудь, трицепс, кор, дыхательная система",
+    "musclesEn": "Chest, triceps, core, metabolic conditioning",
+    "cuesRu": [
+      "1 повтор = 1 бёрпи + 3 строгих отжимания + 2 подтягивания колен в планке",
+      "Строгая планка на каждом из трёх отжиманий",
+      "Туз (11 карт) = 11 полных циклов = 33 строгих отжимания!"
+    ],
+    "cuesEn": [
+      "1 rep = 1 burpee + 3 strict pushups + 2 knee-to-chest tucks in plank",
+      "Rigid plank form through all 3 push-up cycles",
+      "Ace (11) = 11 full cycles = 33 strict push-ups!"
+    ],
+    "commonMistakeRu": "Спешка и сокращение амплитуды отжиманий до полукасаний",
+    "commonMistakeEn": "Rushing cadence and cutting push-up depth to shallow pulses",
+    "youtubeQuery": "navy seal burpees technique"
+  },
+  {
+    "id": "body_hspu",
+    "suit": "S",
+    "tier": 6,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Стойка на руках у стены (HSPU)",
+    "nameEn": "Wall Handstand Push-ups (HSPU)",
+    "musclesRu": "Плечи, трапеции, трицепс, кор",
+    "musclesEn": "Deltoids, trapezius, triceps, core",
+    "cuesRu": [
+      "Пятки на стене, тело натянуто в струну",
+      "Опускание макушкой чуть вперёд от линии ладоней (треугольник)",
+      "Мощный жим вверх до полной блокировки локтей"
+    ],
+    "cuesEn": [
+      "Heels against wall, hollow body tension",
+      "Lower head slightly forward of palms forming a tripod",
+      "Press vertically up to full arm lockout"
+    ],
+    "commonMistakeRu": "Переразгибание поясницы бананом и опускание головы между ладоней",
+    "commonMistakeEn": "Banana back hyperlordosis and dropping crown directly between palms",
+    "youtubeQuery": "handstand pushups у стены техника"
+  },
+  {
+    "id": "body_squats",
+    "suit": "H",
+    "tier": 1,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Классические приседания",
+    "nameEn": "Air Squats",
+    "musclesRu": "Квадрицепсы, ягодичные мышцы, приводящие",
+    "musclesEn": "Quadriceps, glutes, adductors",
+    "cuesRu": [
+      "Стопы на ширине плеч, носки слегка разведены",
+      "Глубина ниже параллели, колени смотрят по линии носков",
+      "Пятки не отрываются от пола, грудь раскрыта"
+    ],
+    "cuesEn": [
+      "Feet shoulder-width apart, toes slightly flared",
+      "Depth below parallel, knees tracking over toes",
+      "Heels glued to floor, proud upright chest"
+    ],
+    "commonMistakeRu": "Заваливание коленей внутрь и отрыв пяток",
+    "commonMistakeEn": "Knees caving inward (valgus collapse) and heels lifting",
+    "youtubeQuery": "воздушные приседания техника"
+  },
+  {
+    "id": "body_jump_squats",
+    "suit": "H",
+    "tier": 2,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Приседания с выпрыгиванием",
+    "nameEn": "Jump Squats",
+    "musclesRu": "Квадрицепсы, ягодицы, икроножные (взрывная сила)",
+    "musclesEn": "Quadriceps, glutes, calves (explosive power)",
+    "cuesRu": [
+      "Глубокий присед до параллели",
+      "Взрывной прыжок вверх с полным разгибанием таза",
+      "Мягкое пружинящее приземление на всю стопу"
+    ],
+    "cuesEn": [
+      "Squat to full depth",
+      "Explode upward reaching full hip extension in flight",
+      "Land quietly and smoothly rolling onto full feet"
+    ],
+    "commonMistakeRu": "Жёсткое приземление на прямые колени",
+    "commonMistakeEn": "Hard jarring landings on stiff knees",
+    "youtubeQuery": "приседания с выпрыгиванием техника"
+  },
+  {
+    "id": "body_bronson_squats",
+    "suit": "H",
+    "tier": 3,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Приседания Бронсона",
+    "nameEn": "Bronson Squats (Pause)",
+    "musclesRu": "Квадрицепсы под статическим напряжением, ягодицы",
+    "musclesEn": "Quadriceps under loaded tension, glutes",
+    "cuesRu": [
+      "Опускание в глубокий присед под контролем за 2-3 секунды",
+      "Чёткая пауза в нижней точке на 2–3 секунды без расслабления",
+      "Мощный строгий подъём без пружинения"
+    ],
+    "cuesEn": [
+      "Descend under control for 2-3 seconds",
+      "Dead stop pause at the bottom for 2–3 seconds under active tension",
+      "Strict ascent with zero bounce"
+    ],
+    "commonMistakeRu": "Расслабление мышц и «падение на суставы» в нижней точке",
+    "commonMistakeEn": "Sitting passively on joints at the bottom rather than maintaining tension",
+    "youtubeQuery": "приседания с паузой техника тюремные тренировки"
+  },
+  {
+    "id": "body_reverse_lunge_knee",
+    "suit": "H",
+    "tier": 4,
+    "equipment": "BODY",
+    "sideRule": "PER_SIDE",
+    "nameRu": "Выпад назад с ударом колена",
+    "nameEn": "Reverse Lunge with Knee Strike",
+    "musclesRu": "Ягодицы, квадрицепс, бицепс бедра, сгибатели таза",
+    "musclesEn": "Glutes, quads, hamstrings, hip flexors",
+    "cuesRu": [
+      "Глубокий шаг назад, колено касается пола",
+      "Взрывной подъём с выносом бедра и резким ударом коленом вперёд",
+      "Правило: номинал на каждую ногу (7 = 7 левая + 7 правая, всего 14)"
+    ],
+    "cuesEn": [
+      "Deep step back until rear knee almost grazes ground",
+      "Drive violently up with dynamic forward knee strike",
+      "Rule: card nominal on EACH leg (7 = 7 left + 7 right, 14 total)"
+    ],
+    "commonMistakeRu": "Потеря равновесия из-за постановки стоп на одну линию",
+    "commonMistakeEn": "Losing balance by placing feet in single tightrope line",
+    "youtubeQuery": "выпад назад с ударом колена техника"
+  },
+  {
+    "id": "body_pistol_squats",
+    "suit": "H",
+    "tier": 5,
+    "equipment": "BODY",
+    "sideRule": "SPLIT_TOTAL",
+    "nameRu": "Пистолетики (на одной ноге)",
+    "nameEn": "Pistol Squats",
+    "musclesRu": "Квадрицепсы, баланс, голеностоп, стабилизаторы",
+    "musclesEn": "Quads, ankle mobility, hip balance, stabilizers",
+    "cuesRu": [
+      "Свободная нога вытянута прямо перед собой",
+      "Полный контроль глубины, пятка опорной ноги прижата",
+      "Правило: номинал делится пополам (нечётный лишний на слабую ногу)"
+    ],
+    "cuesEn": [
+      "Non-working leg extended straight forward",
+      "Full controlled descent, support heel planted firmly",
+      "Rule: total split equally (odd extra rep goes to weaker side)"
+    ],
+    "commonMistakeRu": "Отрыв пятки опорной ноги и завал колена внутрь",
+    "commonMistakeEn": "Lifting working heel and letting knee track severely inward",
+    "youtubeQuery": "приседания пистолетик обучение"
+  },
+  {
+    "id": "body_superman",
+    "suit": "D",
+    "tier": 1,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Лодочка (гиперэкстензия)",
+    "nameEn": "Superman (Floor Hyperextension)",
+    "musclesRu": "Разгибатели спины, ягодицы, задние дельты",
+    "musclesEn": "Spinal erectors, glutes, posterior deltoids",
+    "cuesRu": [
+      "Лёжа на животе, руки вытянуты вперёд",
+      "Одновременный подъём груди и прямых ног над полом",
+      "Пауза в верхней точке на 1 секунду со сжатием ягодиц"
+    ],
+    "cuesEn": [
+      "Prone on belly with arms outstretched forward",
+      "Simultaneously elevate chest and straight legs off floor",
+      "Hold peak contraction for 1 second squeezing glutes"
+    ],
+    "commonMistakeRu": "Резкие рывки шеей вместо работы мышц спины",
+    "commonMistakeEn": "Jerking neck up aggressively instead of using thoracic erectors",
+    "youtubeQuery": "гиперэкстензия на полу лодочка"
+  },
+  {
+    "id": "body_glute_bridge",
+    "suit": "D",
+    "tier": 2,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Ягодичный мостик",
+    "nameEn": "Glute Bridge",
+    "musclesRu": "Большие ягодичные мышцы, бицепс бедра",
+    "musclesEn": "Gluteus maximus, hamstrings",
+    "cuesRu": [
+      "Лёжа на спине, пятки на ширине таза близко к ягодицам",
+      "Мощный подъём таза с упором в пятки до прямой линии корпуса",
+      "Пиковое сжатие ягодиц на 2 секунды вверху"
+    ],
+    "cuesEn": [
+      "Supine with heels close to glutes, hip-width apart",
+      "Drive through heels to full straight hip lock",
+      "Peak 2-second squeeze at the apex"
+    ],
+    "commonMistakeRu": "Чрезмерный прогиб в пояснице вместо работы таза",
+    "commonMistakeEn": "Hyperextending lumbar spine instead of tilting pelvis",
+    "youtubeQuery": "ягодичный мостик техника"
+  },
+  {
+    "id": "body_gymnastic_bridge",
+    "suit": "D",
+    "tier": 3,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Высокий гимнастический мост",
+    "nameEn": "High Gymnastic Bridge",
+    "musclesRu": "Вся задняя мышечная цепь, гибкость плеч и груди",
+    "musclesEn": "Full posterior chain, thoracic & shoulder mobility",
+    "cuesRu": [
+      "Ладони около ушей, пальцы смотрят к плечам",
+      "Выжимание корпуса вверх с выпрямлением рук и ног",
+      "Раскрытие плечевого пояса над кистями"
+    ],
+    "cuesEn": [
+      "Palms beside ears, fingers pointing to shoulders",
+      "Press body upward extending through arms and legs",
+      "Open shoulders forward over the wrists"
+    ],
+    "commonMistakeRu": "Зажим в шее и нежелание выпрямлять локти",
+    "commonMistakeEn": "Shoulder impingement from keeping elbows bent and tight",
+    "youtubeQuery": "гимнастический мостик обучение"
+  },
+  {
+    "id": "body_wrestler_bridge",
+    "suit": "D",
+    "tier": 4,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Борцовский мост на шее",
+    "nameEn": "Wrestler Neck Bridge",
+    "musclesRu": "Мышцы шеи, разгибатели позвоночника, ягодицы",
+    "musclesEn": "Neck extensors, spinal erectors, glute chain",
+    "cuesRu": [
+      "Опора на лоб или затылок на коврике, руки страхуют рядом",
+      "Плавный контролируемый накат без резких движений",
+      "Держите зубы сжатыми, шею в постоянном тонусе"
+    ],
+    "cuesEn": [
+      "Supported on head crown/mat with hands ready to assist",
+      "Slow rhythmic controlled roll without sudden jerks",
+      "Keep jaws clenched and neck muscles fully braced"
+    ],
+    "commonMistakeRu": "Резкие неконтролируемые повороты головы под осевой нагрузкой",
+    "commonMistakeEn": "Abrupt twisting of cervical vertebrae under axial compression",
+    "youtubeQuery": "борцовский мост техника безопасности"
+  },
+  {
+    "id": "body_crunches",
+    "suit": "C",
+    "tier": 1,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Скручивания",
+    "nameEn": "Crunches",
+    "musclesRu": "Прямая мышца живота (верхняя часть)",
+    "musclesEn": "Rectus abdominis (upper core)",
+    "cuesRu": [
+      "Поясница плотно прижата к полу на протяжении всего движения",
+      "Скручивание рёбер к тазу на выдохе",
+      "Подбородок не прижимается к груди, шея расслаблена"
+    ],
+    "cuesEn": [
+      "Lower back firmly pinned to floor throughout entire range",
+      "Curl ribs toward pelvis on deep exhale",
+      "Fist-sized space between chin and chest, neck relaxed"
+    ],
+    "commonMistakeRu": "Тяга головы руками за шею",
+    "commonMistakeEn": "Yanking the neck forward with hands behind head",
+    "youtubeQuery": "правильные скручивания на пресс"
+  },
+  {
+    "id": "body_elevated_crunches",
+    "suit": "C",
+    "tier": 2,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Скручивания с ногами на весу",
+    "nameEn": "Raised-Leg Crunches",
+    "musclesRu": "Прямая мышца живота, глубокие стабилизаторы",
+    "musclesEn": "Rectus abdominis, deep transverse core",
+    "cuesRu": [
+      "Ноги согнуты под 90° в тазу и коленях на весу",
+      "Акцент на максимальном сжатии пресса вверху",
+      "Поясница на полу, медленное опускание лопаток"
+    ],
+    "cuesEn": [
+      "Hips and knees suspended at 90-degree tabletop angles",
+      "Emphasize peak contraction of abdominal wall at top",
+      "Lumbar spine anchored, controlled eccentric return"
+    ],
+    "commonMistakeRu": "Раскачивание ногами для создания инерции",
+    "commonMistakeEn": "Swinging legs to generate momentum",
+    "youtubeQuery": "скручивания с поднятыми ногами"
+  },
+  {
+    "id": "body_v_ups",
+    "suit": "C",
+    "tier": 3,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Склёпка (V-ups)",
+    "nameEn": "V-ups (Pike Snaps)",
+    "musclesRu": "Прямая мышца живота, подвздошно-поясничные мышцы",
+    "musclesEn": "Full rectus abdominis, iliopsoas, core compression",
+    "cuesRu": [
+      "Одновременный подъём прямых ног и корпуса навстречу друг другу",
+      "Касание пальцами рук носков стоп в верхней точке V",
+      "Контролируемый возврат в положение лодочки без удара о пол"
+    ],
+    "cuesEn": [
+      "Simultaneously fold straight legs and torso toward each other",
+      "Tap fingers to shoelaces at peak V apex",
+      "Controlled return to hollow body without slamming to ground"
+    ],
+    "commonMistakeRu": "Сгибание коленей и падение спиной на пол на спуске",
+    "commonMistakeEn": "Bending knees and crashing back down onto floor",
+    "youtubeQuery": "склепка на полу v ups техника"
+  },
+  {
+    "id": "body_dragon_flag",
+    "suit": "C",
+    "tier": 4,
+    "equipment": "BODY",
+    "sideRule": "NONE",
+    "nameRu": "Хвост дракона (Dragon Flag)",
+    "nameEn": "Dragon Flag",
+    "musclesRu": "Весь мышечный корсет, пресс, широчайшие мышцы",
+    "musclesEn": "Entire core cylinder, abs, lats, glutes",
+    "cuesRu": [
+      "Хват за надёжную опору за головой, подъём на лопатках",
+      "Тело натянуто в абсолютно прямую линию от стоп до плеч",
+      "Медленное опускание без залома в тазобедренных суставах"
+    ],
+    "cuesEn": [
+      "Firm anchor grip behind head, pivot on upper shoulder blades",
+      "Lock entire body in rigid spear-like line from shoulders to toes",
+      "Slow controlled eccentric lower with zero hip hinge bend"
+    ],
+    "commonMistakeRu": "Сгибание в тазу и превращение в подъём таза",
+    "commonMistakeEn": "Bending at hips turning it into simple reverse crunches",
+    "youtubeQuery": "хвост дракона брюс ли техника dragon flag"
+  },
+  {
+    "id": "kb_overhead_press",
+    "suit": "S",
+    "tier": 1,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Жим гири стоя",
+    "nameEn": "Kettlebell Overhead Press",
+    "musclesRu": "Дельтовидные мышцы, трицепс, верхняя трапеция, кор",
+    "musclesEn": "Deltoids, triceps, upper traps, core brace",
+    "cuesRu": [
+      "Стойка устойчивая, ягодицы и пресс натянуты в струну",
+      "Траектория жима вверх и чуть за голову над ухом",
+      "Полная фиксация локтя в верхней точке без отклонения назад"
+    ],
+    "cuesEn": [
+      "Solid stance, glutes and abs braced rock solid",
+      "Press path arches slightly around head locking directly over ear",
+      "Complete elbow lockout with zero backward spinal lean"
+    ],
+    "commonMistakeRu": "Отклонение корпуса назад и превращение жима в жим с наклона",
+    "commonMistakeEn": "Leaning back excessively converting it into incline chest press",
+    "youtubeQuery": "жим гири стоя техника"
+  },
+  {
+    "id": "kb_z_press",
+    "suit": "S",
+    "tier": 2,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Z-Press сидя на полу",
+    "nameEn": "Z-Press Seated on Floor",
+    "musclesRu": "Плечи, верх спины, глубокие мышцы кора (без помощи ног)",
+    "musclesEn": "Deltoids, upper back, pure strict core (no leg drive)",
+    "cuesRu": [
+      "Сидя на полу с прямыми разведенными ногами, спина строго вертикальна",
+      "Никакого читинга ногами — строгий чистый жим",
+      "Фиксация гири прямо над головой в зените"
+    ],
+    "cuesEn": [
+      "Seated flat on floor with legs straight and spread, spine upright",
+      "Absolute zero leg drive — pure mechanical shoulder press",
+      "Lock kettlebell out directly overhead at zenith"
+    ],
+    "commonMistakeRu": "Округление спины и сутулость из-за нехватки гибкости подколенных сухожилий",
+    "commonMistakeEn": "Slumping into kyphotic posture due to hamstring tightness",
+    "youtubeQuery": "z press с гирей техника"
+  },
+  {
+    "id": "kb_thrusters",
+    "suit": "S",
+    "tier": 3,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Трастеры с гирями",
+    "nameEn": "Kettlebell Thrusters",
+    "musclesRu": "Квадрицепсы, ягодицы, плечи, трицепс, кардио",
+    "musclesEn": "Quads, glutes, shoulders, triceps, metabolic engine",
+    "cuesRu": [
+      "Глубокий фронтальный присед с гирями на груди",
+      "Мощный взрывной импульс ног передаётся в жим гирь над головой",
+      "Одно слитное движение снизу доверху"
+    ],
+    "cuesEn": [
+      "Deep front squat with kettlebells racked at chest",
+      "Explosive drive out of the hole transferring momentum into overhead press",
+      "One seamless kinetic flow from bottom to top"
+    ],
+    "commonMistakeRu": "Пауза между приседом и жимом, ломающая передачу импульса",
+    "commonMistakeEn": "Pausing at standing height before pressing, destroying kinetic transfer",
+    "youtubeQuery": "трастеры с гирями техника"
+  },
+  {
+    "id": "kb_goblet_squat",
+    "suit": "H",
+    "tier": 1,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Гоблет-присед с гирей",
+    "nameEn": "Goblet Squat",
+    "musclesRu": "Квадрицепсы, ягодичные мышцы, верх спины",
+    "musclesEn": "Quadriceps, glutes, upper back stabilizers",
+    "cuesRu": [
+      "Гиря удерживается за дужки или за тело у груди",
+      "Локти направлены вниз и скользят между коленями в глубине",
+      "Грудь вертикальна, колени направлены по носкам"
+    ],
+    "cuesEn": [
+      "Hold kettlebell by horns or body snug against upper chest",
+      "Elbows point down and track between inside of knees at bottom",
+      "Torso upright, knees tracking in line with toes"
+    ],
+    "commonMistakeRu": "Наклон корпуса вперёд и опускание гири от груди",
+    "commonMistakeEn": "Leaning excessively forward and letting kettlebell drift away from chest",
+    "youtubeQuery": "гоблет присед с гирей техника"
+  },
+  {
+    "id": "kb_front_squat",
+    "suit": "H",
+    "tier": 2,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Фронтальный присед с 2 гирями",
+    "nameEn": "Double Kettlebell Front Squat",
+    "musclesRu": "Квадрицепсы, ягодицы, разгибатели спины, дыхательный кор",
+    "musclesEn": "Quadriceps, glutes, thoracic erectors, anterior core",
+    "cuesRu": [
+      "2 гири надёжно зафиксированы в rack-позиции на предплечьях",
+      "Локти прижаты к ребрам, грудная клетка наполнена воздухом",
+      "Глубокий ровный присед с сохранением вертикали позвоночника"
+    ],
+    "cuesEn": [
+      "Both kettlebells locked in tight chest rack position",
+      "Elbows tucked to ribs, chest filled with braced air",
+      "Deep balanced squat maintaining vertical spinal column"
+    ],
+    "commonMistakeRu": "Разведение локтей в стороны и округление грудного отдела",
+    "commonMistakeEn": "Flaring elbows allowing kettlebells to pull thoracic spine into flexion",
+    "youtubeQuery": "фронтальный присед с 2 гирями техника"
+  },
+  {
+    "id": "kb_sumo_squat",
+    "suit": "H",
+    "tier": 3,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Присед сумо с гирей",
+    "nameEn": "Kettlebell Sumo Squat",
+    "musclesRu": "Приводящие мышцы бедра, ягодицы, квадрицепсы",
+    "musclesEn": "Adductors, glutes, inner thighs, quadriceps",
+    "cuesRu": [
+      "Широкая постановка стоп, носки развернуты под 45 градусов",
+      "Колени строго разводятся в направлении носков",
+      "Таз опускается вертикально вниз с ровной спиной"
+    ],
+    "cuesEn": [
+      "Wide stance, toes flared outward at 45 degrees",
+      "Knees track aggressively outward over the feet",
+      "Hips drop straight down with proud flat back"
+    ],
+    "commonMistakeRu": "Заваливание коленей внутрь под нагрузкой",
+    "commonMistakeEn": "Knees collapsing inward under load",
+    "youtubeQuery": "присед сумо с гирей техника"
+  },
+  {
+    "id": "kb_deadlift",
+    "suit": "D",
+    "tier": 1,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Становая тяга с гирей",
+    "nameEn": "Kettlebell Deadlift",
+    "musclesRu": "Ягодицы, бицепс бедра, разгибатели спины, хват",
+    "musclesEn": "Glutes, hamstrings, spinal erectors, grip",
+    "cuesRu": [
+      "Гиря между стопами, движение тазом назад (петля в тазу - hip hinge)",
+      "Спина прямая, плечи над гирей, лопатки приведены",
+      "Подъём за счёт мощного разгибания ягодиц"
+    ],
+    "cuesEn": [
+      "Kettlebell between feet, hip hinge mechanics pushing hips back",
+      "Flat spine, shoulders packed over the bell handle",
+      "Drive from the floor by violently extending glutes"
+    ],
+    "commonMistakeRu": "Округление поясницы (горб) при срыве снаряда",
+    "commonMistakeEn": "Rounding lumbar spine when pulling off floor",
+    "youtubeQuery": "становая тяга с гирей техника"
+  },
+  {
+    "id": "kb_swings",
+    "suit": "D",
+    "tier": 2,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Махи гирей (Swings)",
+    "nameEn": "Kettlebell Swings",
+    "musclesRu": "Ягодицы, бицепс бедра, широчайшие, выносливость",
+    "musclesEn": "Glutes, hamstrings, lats, posterior explosive power",
+    "cuesRu": [
+      "Движение от таза, а не руками или приседом",
+      "Взрывной щелчок бёдрами в верхней точке",
+      "Планка стоя в верхней фазе: колени, таз и пресс зажаты"
+    ],
+    "cuesEn": [
+      "Movement driven entirely by hips, not arms or squatting",
+      "Violent explosive snap of hips at the apex",
+      "Standing plank at top: knees, glutes and abs locked"
+    ],
+    "commonMistakeRu": "Подъём гири плечами вместо щелчка тазом",
+    "commonMistakeEn": "Lifting bell with shoulders rather than snapping hips",
+    "youtubeQuery": "махи гирей техника swings"
+  },
+  {
+    "id": "kb_snatch",
+    "suit": "D",
+    "tier": 3,
+    "equipment": "KETTLEBELL",
+    "sideRule": "SPLIT_TOTAL",
+    "nameRu": "Рывок гири (Snatch)",
+    "nameEn": "Kettlebell Snatch",
+    "musclesRu": "Вся задняя цепь, плечевой пояс, хват, дыхание",
+    "musclesEn": "Full posterior chain, shoulder stability, grip, VO2 max",
+    "cuesRu": [
+      "Единое взрывное движение из замаха прямо над головой",
+      "Мягкий проворот дужки вокруг кисти без удара по предплечью",
+      "Правило: номинал делится пополам по рукам (лишний на слабую руку)"
+    ],
+    "cuesEn": [
+      "Single explosive acceleration from backswing directly overhead",
+      "Smooth spear through handle so bell lands softly without bruising forearm",
+      "Rule: split reps equally between arms (odd rep to weaker arm)"
+    ],
+    "commonMistakeRu": "Удар гирей по предплечью из-за запоздалого проворота дужки",
+    "commonMistakeEn": "Banging kettlebell on forearm due to late punch-through",
+    "youtubeQuery": "рывок гири техника snatch"
+  },
+  {
+    "id": "kb_weighted_crunch",
+    "suit": "C",
+    "tier": 1,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Скручивания с гирей на груди",
+    "nameEn": "Weighted Kettlebell Crunches",
+    "musclesRu": "Прямая мышца живота под дополнительным отягощением",
+    "musclesEn": "Rectus abdominis under progressive overload",
+    "cuesRu": [
+      "Гиря прижата двумя руками к верхней части груди",
+      "Плавное скручивание без отрыва поясницы от пола",
+      "Мощный выдох в верхней точке со статическим напряжением"
+    ],
+    "cuesEn": [
+      "Hold kettlebell securely across upper chest with both hands",
+      "Roll thoracic spine upward keeping lumbar glued to ground",
+      "Hard peak exhale with static abdominal squeeze"
+    ],
+    "commonMistakeRu": "Рывок снарядом вверх для создания импульса",
+    "commonMistakeEn": "Jerking kettlebell up like a lever instead of curling abs",
+    "youtubeQuery": "скручивания с отягощением на пресс"
+  },
+  {
+    "id": "kb_russian_twist",
+    "suit": "C",
+    "tier": 2,
+    "equipment": "KETTLEBELL",
+    "sideRule": "NONE",
+    "nameRu": "Русский твист с гирей",
+    "nameEn": "Kettlebell Russian Twist",
+    "musclesRu": "Косые мышцы живота, поперечная мышца, вращатели",
+    "musclesEn": "Obliques, transverse abdominis, rotary stability",
+    "cuesRu": [
+      "Сидя на полу, корпус отклонен назад под 45 градусов, стопы на весу",
+      "Поворот грудной клетки и плечевого пояса вместе с гирей",
+      "Касание гирей пола по бокам под строгим контролем"
+    ],
+    "cuesEn": [
+      "Seated with torso leaned back 45 degrees, feet elevated",
+      "Rotate entire rib cage and shoulders with the bell",
+      "Controlled tap of bell beside hips without flopping"
+    ],
+    "commonMistakeRu": "Движение одними руками без поворота корпуса",
+    "commonMistakeEn": "Moving only arms from side to side without thoracic rotation",
+    "youtubeQuery": "русский твист с гирей техника"
+  },
+  {
+    "id": "kb_windmill",
+    "suit": "C",
+    "tier": 3,
+    "equipment": "KETTLEBELL",
+    "sideRule": "SPLIT_TOTAL",
+    "nameRu": "Мельница с гирей (Windmill)",
+    "nameEn": "Kettlebell Windmill",
+    "musclesRu": "Косые мышцы живота, мобильность таза, стабильность плеча",
+    "musclesEn": "Obliques, hip mobility, shoulder stabilizing girdle",
+    "cuesRu": [
+      "Гиря выжата над головой на прямой руке, взгляд прикован к снаряду",
+      "Наклон в тазу по диагонали к противоположной стопе",
+      "Правило: номинал делится пополам по сторонам"
+    ],
+    "cuesEn": [
+      "Bell locked overhead with straight arm, eyes fixed on the weight",
+      "Hinge hips back diagonally toward opposite foot",
+      "Rule: total reps divided equally across both sides"
+    ],
+    "commonMistakeRu": "Сгибание руки с гирей и потеря зрительного контакта с весом",
+    "commonMistakeEn": "Bending overhead arm and looking away from the kettlebell",
+    "youtubeQuery": "мельница с гирей windmill техника"
+  }
+]

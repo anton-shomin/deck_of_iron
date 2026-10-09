@@ -1,0 +1,58 @@
+[
+  {
+    "id": "prison_boxing",
+    "nameRu": "Тюремный бокс",
+    "nameEn": "Prison Boxing",
+    "descRu": "Брутальная калистеника в замкнутом пространстве: отжимания Тайсона, приседания Бронсона, борцовский мост и склёпка.",
+    "descEn": "Brutal calisthenics in confined space: Tyson push-ups, Bronson squats, wrestler bridge, and V-ups.",
+    "mode": "BODY",
+    "loads": {
+      "S": { "exerciseId": "body_tyson_pushups", "kg": 0, "count": 1 },
+      "H": { "exerciseId": "body_bronson_squats", "kg": 0, "count": 1 },
+      "D": { "exerciseId": "body_wrestler_bridge", "kg": 0, "count": 1 },
+      "C": { "exerciseId": "body_v_ups", "kg": 0, "count": 1 }
+    }
+  },
+  {
+    "id": "navy_seal",
+    "nameRu": "Морской котик",
+    "nameEn": "Navy SEAL",
+    "descRu": "Экстремальный функционал: циклы бёрпи морских котиков, взрывные выпады с коленом, ягодичный мост и хвост дракона.",
+    "descEn": "Extreme military conditioning: Navy SEAL burpee cycles, knee strike lunges, glute bridges, and dragon flags.",
+    "mode": "BODY",
+    "loads": {
+      "S": { "exerciseId": "body_navy_seal_burpees", "kg": 0, "count": 1 },
+      "H": { "exerciseId": "body_reverse_lunge_knee", "kg": 0, "count": 1 },
+      "D": { "exerciseId": "body_glute_bridge", "kg": 0, "count": 1 },
+      "C": { "exerciseId": "body_dragon_flag", "kg": 0, "count": 1 }
+    }
+  },
+  {
+    "id": "iron_beast",
+    "nameRu": "Чугунный зверь",
+    "nameEn": "Cast Iron Beast",
+    "descRu": "Тяжёлые гиревые связки: Z-Press с пола, фронтальный присед с двумя гирями, рывки и русский твист.",
+    "descEn": "Heavy kettlebell mastery: seated floor Z-Press, double kettlebell front squats, snatches, and Russian twists.",
+    "mode": "KETTLEBELL",
+    "loads": {
+      "S": { "exerciseId": "kb_z_press", "kg": 16, "count": 1 },
+      "H": { "exerciseId": "kb_front_squat", "kg": 16, "count": 2 },
+      "D": { "exerciseId": "kb_snatch", "kg": 16, "count": 1 },
+      "C": { "exerciseId": "kb_russian_twist", "kg": 16, "count": 1 }
+    }
+  },
+  {
+    "id": "pure_classic",
+    "nameRu": "Чистая классика",
+    "nameEn": "Pure Classic",
+    "descRu": "Золотой стандарт тренировки с собственным весом: отжимания, приседания, лодочка и скручивания.",
+    "descEn": "The golden bodyweight standard: push-ups, air squats, floor superman, and crunches.",
+    "mode": "BODY",
+    "loads": {
+      "S": { "exerciseId": "body_pushups", "kg": 0, "count": 1 },
+      "H": { "exerciseId": "body_squats", "kg": 0, "count": 1 },
+      "D": { "exerciseId": "body_superman", "kg": 0, "count": 1 },
+      "C": { "exerciseId": "body_crunches", "kg": 0, "count": 1 }
+    }
+  }
+]

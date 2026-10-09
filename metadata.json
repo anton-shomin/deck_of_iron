@@ -1,0 +1,6 @@
+{
+  "name": "DECK OF IRON",
+  "description": "Tactical deck of cards workout PWA with calisthenics, kettlebells, Beast Mode and safety breaks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
