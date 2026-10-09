@@ -366,9 +366,10 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
                     {lang === 'ru' ? 'Статика: Планка на предплечьях' : 'Static: Forearm Plank'}
                   </p>
                   <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-red-950/80 border border-red-600/60 text-xs font-black text-red-400">
-                    {config.beast
-                      ? `${(config.jokerSettings?.redPlankSeconds || 120) / 60} ${t.minutesShort} (выбор 1 / 2 / 5 мин)`
-                      : `60 ${t.secondsShort}`}
+                    {(() => {
+                      const sec = config.jokerSettings?.redPlankSeconds || (config.beast ? 120 : 60);
+                      return sec >= 60 ? `${Math.round(sec / 60)} ${t.minutesShort}` : `${sec} ${t.secondsShort}`;
+                    })()}
                   </div>
                 </div>
               ) : (
@@ -568,9 +569,7 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
         <RedJokerModal
           beast={config.beast}
           initialDuration={
-            config.beast
-              ? config.jokerSettings?.redPlankSeconds || 120
-              : 60
+            config.jokerSettings?.redPlankSeconds || (config.beast ? 120 : 60)
           }
           onComplete={() => {
             setShowJokerModal(false);

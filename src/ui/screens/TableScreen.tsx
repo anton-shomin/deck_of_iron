@@ -396,54 +396,47 @@ export const TableScreen: React.FC<TableScreenProps> = ({
             <div className="bg-zinc-950/80 p-3 rounded-2xl border border-zinc-800 space-y-2">
               <div className="text-[11px] font-bold text-zinc-300 flex items-center justify-between">
                 <span>{t.redJokerOption}</span>
-                <span className="text-[10px] text-zinc-400 font-semibold">
-                  {config.beast
-                    ? `${(config.jokerSettings?.redPlankSeconds || 180) / 60} ${t.minutesShort}`
-                    : `60 ${t.secondsShort}`}
+                <span className="text-[10px] text-red-400 font-bold bg-red-950/60 px-2 py-0.5 rounded border border-red-900/60">
+                  {Math.round((config.jokerSettings?.redPlankSeconds || (config.beast ? 120 : 60)) / 60)} {t.minutesShort}
                 </span>
               </div>
 
-              {config.beast ? (
-                <div>
-                  <div className="text-[10px] text-zinc-400 font-medium mb-1.5">
-                    {lang === 'ru' ? 'Выбор времени планки (1 / 2 / 5 мин):' : 'Select plank duration (1 / 2 / 5 min):'}
-                  </div>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {[60, 120, 300].map((sec) => (
-                      <button
-                        key={sec}
-                        type="button"
-                        onClick={() =>
-                          onChangeConfig({
-                            ...config,
-                            jokerSettings: {
-                              blackKbCount: config.jokerSettings?.blackKbCount || 1,
-                              blackKbWeight: config.jokerSettings?.blackKbWeight || 24,
-                              blackKbReps: config.jokerSettings?.blackKbReps || 30,
-                              blackBodyReps: config.jokerSettings?.blackBodyReps || 30,
-                              blackExerciseChoice:
-                                config.jokerSettings?.blackExerciseChoice || 'BURPEES',
-                              blackWallSitSeconds: config.jokerSettings?.blackWallSitSeconds || 120,
-                              redPlankSeconds: sec,
-                            },
-                          })
-                        }
-                        className={`py-1.5 rounded-xl text-xs font-black border transition ${
-                          (config.jokerSettings?.redPlankSeconds || 120) === sec
-                            ? 'bg-red-600 border-red-500 text-white'
-                            : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
-                        }`}
-                      >
-                        {sec / 60} {t.minutesShort}
-                      </button>
-                    ))}
-                  </div>
+              <div>
+                <div className="text-[10px] text-zinc-400 font-medium mb-1.5 flex items-center justify-between">
+                  <span>{lang === 'ru' ? 'Выбор времени планки (1 / 2 / 3 / 5 мин):' : 'Select plank duration (1 / 2 / 3 / 5 min):'}</span>
+                  <span className="text-red-400 font-bold">1 / 2 / 3 / 5 {t.minutesShort}</span>
                 </div>
-              ) : (
-                <div className="text-[11px] text-zinc-400 bg-zinc-900/60 p-2 rounded-xl">
-                  {lang === 'ru' ? 'Планка на предплечьях: 60 с' : 'Forearm plank: 60 s'}
+                <div className="grid grid-cols-4 gap-1.5">
+                  {[60, 120, 180, 300].map((sec) => (
+                    <button
+                      key={sec}
+                      type="button"
+                      onClick={() =>
+                        onChangeConfig({
+                          ...config,
+                          jokerSettings: {
+                            blackKbCount: config.jokerSettings?.blackKbCount || 1,
+                            blackKbWeight: config.jokerSettings?.blackKbWeight || 24,
+                            blackKbReps: config.jokerSettings?.blackKbReps || 30,
+                            blackBodyReps: config.jokerSettings?.blackBodyReps || 30,
+                            blackExerciseChoice:
+                              config.jokerSettings?.blackExerciseChoice || 'BURPEES',
+                            blackWallSitSeconds: config.jokerSettings?.blackWallSitSeconds || 120,
+                            redPlankSeconds: sec,
+                          },
+                        })
+                      }
+                      className={`py-1.5 rounded-xl text-xs font-black border transition ${
+                        (config.jokerSettings?.redPlankSeconds || (config.beast ? 120 : 60)) === sec
+                          ? 'bg-red-600 border-red-500 text-white shadow-md shadow-red-950'
+                          : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
+                      }`}
+                    >
+                      {sec / 60} {t.minutesShort}
+                    </button>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Black Joker Settings (Dynamic / Challenge) */}
@@ -745,11 +738,11 @@ export const TableScreen: React.FC<TableScreenProps> = ({
                   (config.mode === 'KETTLEBELL' ? 'THRUSTERS' : 'BURPEES')) === 'WALL_SIT' && (
                   <div className="pt-1 border-t border-zinc-800/80">
                     <div className="text-[10px] text-zinc-400 font-medium mb-1 flex items-center justify-between">
-                      <span>{lang === 'ru' ? 'Время стульчика у стены (1 / 2 / 5 мин):' : 'Wall sit duration (1 / 2 / 5 min):'}</span>
-                      <span className="text-amber-400 font-bold">1 / 2 / 5 мин</span>
+                      <span>{lang === 'ru' ? 'Время стульчика у стены (1 / 2 / 3 / 5 мин):' : 'Wall sit duration (1 / 2 / 3 / 5 min):'}</span>
+                      <span className="text-amber-400 font-bold">1 / 2 / 3 / 5 {t.minutesShort}</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-1.5">
-                      {[60, 120, 300].map((sec) => (
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {[60, 120, 180, 300].map((sec) => (
                         <button
                           key={sec}
                           type="button"
@@ -769,7 +762,7 @@ export const TableScreen: React.FC<TableScreenProps> = ({
                           }
                           className={`py-1 rounded-xl text-xs font-black border transition ${
                             (config.jokerSettings?.blackWallSitSeconds || 120) === sec
-                              ? 'bg-amber-600 border-amber-500 text-white'
+                              ? 'bg-amber-600 border-amber-500 text-white shadow-md shadow-amber-950'
                               : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
                           }`}
                         >

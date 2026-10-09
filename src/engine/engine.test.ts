@@ -240,6 +240,74 @@ function runTests() {
   }
   console.log('✓ Test 8 Passed: Black Joker in Kettlebell mode successfully allows Thrusters, Burpees, and Wall Sit.');
 
+  // Test 9: Deck repetition safety:
+  // - Max 2 consecutive cards of the same exercise (suit)
+  // - No consecutive cards of the same exercise if reps >= 10
+  // - Heavy load gap in Kettlebell mode
+  for (let trial = 0; trial < 100; trial++) {
+    const isKb = trial % 2 === 0;
+    const jokersCount = (trial % 3) as 0 | 1 | 2;
+    const rawDeck = createDeck({ jokersCount, aceValue: 11 });
+    const finalDeck = applyHeavyLoadGap(rawDeck, isKb);
+
+    // Verify 52 + jokers cards
+    const expectedLen = 52 + jokersCount;
+    if (finalDeck.length !== expectedLen) {
+      throw new Error(`Expected deck length ${expectedLen}, got ${finalDeck.length}`);
+    }
+
+    // Verify repetition limits
+    let lastHeavyIndex: number | null = null;
+    let hasLowCardBetween = false;
+
+    for (let i = 0; i < finalDeck.length; i++) {
+      const card = finalDeck[i];
+
+      if (card.suit && card.rank !== 'JOKER') {
+        if (i >= 1 && finalDeck[i - 1].suit === card.suit) {
+          // Never two consecutive cards of same suit with reps >= 10
+          if (card.reps >= 10 || finalDeck[i - 1].reps >= 10) {
+            throw new Error(
+              `Repetition violation at index ${i}: consecutive ${card.suit} with reps (${finalDeck[i - 1].reps}, ${card.reps}) >= 10`
+            );
+          }
+          // Never 3 consecutive cards of same suit
+          if (i >= 2 && finalDeck[i - 2].suit === card.suit) {
+            throw new Error(`Repetition violation at index ${i}: 3 consecutive cards of suit ${card.suit}`);
+          }
+        }
+      }
+
+      // Plank (Red Joker) must NEVER follow Core (Suit C)
+      if (card.rank === 'JOKER' && card.jokerColor === 'RED') {
+        if (i >= 1 && finalDeck[i - 1].suit === 'C') {
+          throw new Error(`Safety violation: Plank (Red Joker) at index ${i} came directly after Core exercise (Suit C)!`);
+        }
+      }
+
+      // Wall Sit (Black Joker) must NEVER follow Squats (Suit H)
+      if (card.rank === 'JOKER' && card.jokerColor === 'BLACK') {
+        if (i >= 1 && finalDeck[i - 1].suit === 'H') {
+          throw new Error(`Safety violation: Wall Sit (Black Joker) at index ${i} came directly after Squat exercise (Suit H)!`);
+        }
+      }
+
+      if (isKb) {
+        if (card.reps <= 6 && card.suit && card.rank !== 'JOKER') {
+          hasLowCardBetween = true;
+        }
+        if (['S', 'H', 'D'].includes(card.suit || '') && card.reps >= 10) {
+          if (lastHeavyIndex !== null && !hasLowCardBetween) {
+            throw new Error(`Heavy Load Gap violation between indices ${lastHeavyIndex} and ${i}`);
+          }
+          lastHeavyIndex = i;
+          hasLowCardBetween = false;
+        }
+      }
+    }
+  }
+  console.log('✓ Test 9 Passed: No 3 consecutive suits, no consecutive suits with 10+ reps, and heavy load gap preserved across 100 decks.');
+
   console.log('ALL ENGINE TESTS PASSED SUCCESSFULLY! ✓');
 }
 

@@ -1,4 +1,5 @@
 import { Card, Rank, Suit, JokerColor } from '../types';
+import { balanceDeckSafety } from './safety';
 
 export const SUITS: Suit[] = ['S', 'H', 'D', 'C'];
 export const RANKS: Rank[] = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
@@ -55,7 +56,7 @@ export function createDeck(options: {
   const { aceValue = 11, jokersCount = 0, rng = Math.random } = options;
 
   const baseDeck = generateBaseDeck(aceValue);
-  const shuffledBase = shuffleArray(baseDeck, rng);
+  const shuffledBase = balanceDeckSafety(shuffleArray(baseDeck, rng), false, rng);
 
   if (jokersCount === 0) {
     return shuffledBase;
@@ -67,6 +68,7 @@ export function createDeck(options: {
 
   if (jokersCount === 1) {
     const color: JokerColor = rng() > 0.5 ? 'RED' : 'BLACK';
+    const forbiddenPrevSuit: Suit = color === 'RED' ? 'C' : 'H';
     const jokerCard: Card = {
       id: `JOKER-${color}-${Date.now()}`,
       suit: null,
@@ -74,14 +76,30 @@ export function createDeck(options: {
       reps: 0,
       jokerColor: color,
     };
-    const insertIndex = MIN_POS + Math.floor(rng() * (MAX_POS - MIN_POS + 1));
+
+    // Filter insertion positions where preceding card is not forbiddenPrevSuit
+    const validPositions: number[] = [];
+    for (let p = MIN_POS; p <= MAX_POS; p++) {
+      if (shuffledBase[p - 1]?.suit !== forbiddenPrevSuit) {
+        validPositions.push(p);
+      }
+    }
+
+    const insertIndex =
+      validPositions.length > 0
+        ? validPositions[Math.floor(rng() * validPositions.length)]
+        : MIN_POS + Math.floor(rng() * (MAX_POS - MIN_POS + 1));
+
     shuffledBase.splice(insertIndex, 0, jokerCard);
-    return shuffledBase;
+    return balanceDeckSafety(shuffledBase, false, rng);
   }
 
   // jokersCount === 2: one RED and one BLACK
   // Between two jokers: at least 7 cards, meaning |pos2 - pos1| >= 8
   const colors: JokerColor[] = rng() > 0.5 ? ['RED', 'BLACK'] : ['BLACK', 'RED'];
+  const j1Forbidden: Suit = colors[0] === 'RED' ? 'C' : 'H';
+  const j2Forbidden: Suit = colors[1] === 'RED' ? 'C' : 'H';
+
   const joker1: Card = {
     id: `JOKER-${colors[0]}-1`,
     suit: null,
@@ -97,17 +115,36 @@ export function createDeck(options: {
     jokerColor: colors[1],
   };
 
-  // Valid range [MIN_POS, MAX_POS].
-  // Need pos1 and pos2 such that pos2 - pos1 >= 8.
-  // Maximum pos1 is MAX_POS - 8.
+  // Find valid position pairs (pos1, pos2) such that:
+  // pos1 in [MIN_POS, MAX_POS - 8]
+  // pos2 in [pos1 + 8, MAX_POS]
+  // card before pos1 != j1Forbidden
+  // card before pos2 != j2Forbidden
+  const validPairs: [number, number][] = [];
   const maxPos1 = MAX_POS - 8;
-  const pos1 = MIN_POS + Math.floor(rng() * (maxPos1 - MIN_POS + 1));
-  const minPos2 = pos1 + 8;
-  const pos2 = minPos2 + Math.floor(rng() * (MAX_POS - minPos2 + 1));
+  for (let p1 = MIN_POS; p1 <= maxPos1; p1++) {
+    if (shuffledBase[p1 - 1]?.suit === j1Forbidden) continue;
+    for (let p2 = p1 + 8; p2 <= MAX_POS; p2++) {
+      if (shuffledBase[p2 - 1]?.suit === j2Forbidden) continue;
+      validPairs.push([p1, p2]);
+    }
+  }
+
+  let pos1: number;
+  let pos2: number;
+  if (validPairs.length > 0) {
+    const chosen = validPairs[Math.floor(rng() * validPairs.length)];
+    pos1 = chosen[0];
+    pos2 = chosen[1];
+  } else {
+    pos1 = MIN_POS + Math.floor(rng() * (maxPos1 - MIN_POS + 1));
+    const minPos2 = pos1 + 8;
+    pos2 = minPos2 + Math.floor(rng() * (MAX_POS - minPos2 + 1));
+  }
 
   // Insert pos1 first, then pos2 + 1 because the array expands by 1
   shuffledBase.splice(pos1, 0, joker1);
   shuffledBase.splice(pos2 + 1, 0, joker2);
 
-  return shuffledBase;
+  return balanceDeckSafety(shuffledBase, false, rng);
 }

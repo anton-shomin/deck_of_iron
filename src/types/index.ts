@@ -39,13 +39,13 @@ export interface SuitLoad {
 export type BlackJokerChoice = 'THRUSTERS' | 'BURPEES' | 'WALL_SIT' | 'SUIT_15';
 
 export interface JokerSettings {
-  redPlankSeconds: number; // 60, 120, 300 (1 / 2 / 5 min)
+  redPlankSeconds: number; // 60, 120, 180, 300 (1 / 2 / 3 / 5 min)
   blackExerciseChoice: BlackJokerChoice; // 'THRUSTERS' | 'BURPEES' | 'WALL_SIT'
   blackKbCount: 1 | 2; // 1 or 2 kettlebells
   blackKbWeight: 16 | 24 | 32; // 16, 24, 32 kg
   blackKbReps: 20 | 30 | 50 | 70 | 100;
   blackBodyReps: 20 | 30 | 50;
-  blackWallSitSeconds: number; // 60, 120, 300 (1 / 2 / 5 min)
+  blackWallSitSeconds: number; // 60, 120, 180, 300 (1 / 2 / 3 / 5 min)
 }
 
 export interface SessionConfig {
