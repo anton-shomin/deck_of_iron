@@ -217,6 +217,17 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
 
   const progressPercent = deck.length > 0 ? Math.round((currentIndex / deck.length) * 100) : 0;
 
+  // Active Joker Color determination (with fallback for 1st vs 2nd Joker)
+  const isRedJoker = currentCard?.rank === 'JOKER' && (
+    currentCard.jokerColor === 'RED' ||
+    (!currentCard.jokerColor && accumulatedJokers % 2 === 0)
+  );
+
+  const isBlackJoker = currentCard?.rank === 'JOKER' && (
+    currentCard.jokerColor === 'BLACK' ||
+    (!currentCard.jokerColor && accumulatedJokers % 2 === 1)
+  );
+
   return (
     <div className="flex-1 max-w-md w-full mx-auto px-4 pt-2 pb-6 flex flex-col justify-between select-none">
       {/* 1. TOP STATUS BAR (PROGRESS & TIMER) */}
@@ -269,7 +280,7 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
             <div className="my-auto space-y-2">
               <div className="text-6xl">★</div>
               <h2 className="font-display text-2xl font-black text-white uppercase">
-                {currentCard.jokerColor === 'RED'
+                {isRedJoker
                   ? lang === 'ru'
                     ? 'КРАСНЫЙ ДЖОКЕР'
                     : 'RED JOKER'
@@ -392,7 +403,7 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
       )}
 
       {/* Red Joker Modal */}
-      {showJokerModal && currentCard?.rank === 'JOKER' && currentCard.jokerColor === 'RED' && (
+      {showJokerModal && isRedJoker && (
         <RedJokerModal
           beast={config.beast}
           initialDuration={
@@ -407,7 +418,7 @@ export const WorkoutHUD: React.FC<WorkoutHUDProps> = ({
       )}
 
       {/* Black Joker Modal */}
-      {showJokerModal && currentCard?.rank === 'JOKER' && currentCard.jokerColor === 'BLACK' && (
+      {showJokerModal && isBlackJoker && (
         <BlackJokerModal
           config={config}
           exercises={exercises}

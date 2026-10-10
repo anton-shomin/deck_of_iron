@@ -194,8 +194,8 @@ export const TableScreen: React.FC<TableScreenProps> = ({
 
           <p className="text-xs text-[#9C9388] font-medium">
             {config.mode === 'KETTLEBELL' && totalTonnage > 0
-              ? `52 карты • ${totalReps} повторений • ${totalTonnage.toLocaleString()} кг`
-              : `52 карты • ${totalReps} повторений`}
+              ? `${52 + config.jokers} карт • ${totalReps} повторений • ${totalTonnage.toLocaleString()} кг`
+              : `${52 + config.jokers} карт • ${totalReps} повторений`}
           </p>
         </div>
       </div>
@@ -283,8 +283,8 @@ export const TableScreen: React.FC<TableScreenProps> = ({
               <SegmentedControl<0 | 1 | 2>
                 options={[
                   { label: '0', value: 0 },
-                  { label: '1 Joker', value: 1 },
-                  { label: '2 Jokers', value: 2 },
+                  { label: lang === 'ru' ? '1 Джокер' : '1 Joker', value: 1 },
+                  { label: lang === 'ru' ? '2 Джокера' : '2 Jokers', value: 2 },
                 ]}
                 value={config.jokers}
                 onChange={(jokers) => onChangeConfig({ ...config, jokers })}
