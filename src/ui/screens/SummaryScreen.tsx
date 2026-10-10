@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Award, RotateCcw, Home, Dumbbell, Flame, CheckCircle2 } from 'lucide-react';
 import { Exercise, SessionConfig, Suit } from '../../types';
 import { Language, translations } from '../../data/translations';
 import { formatDuration } from '../../engine/scoring';
@@ -32,7 +31,7 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
 }) => {
   const t = translations[lang];
 
-  // Save to IndexedDB upon mounting
+  // Save to IndexedDB/localStorage upon mounting
   useEffect(() => {
     const entry = {
       id: `workout_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
@@ -50,35 +49,12 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
     saveWorkoutToHistory(entry);
   }, [summary, config]);
 
-  const suitsList: { suit: Suit; symbol: string; color: string; border: string; bg: string }[] = [
-    {
-      suit: 'S',
-      symbol: '♠',
-      color: 'text-zinc-100',
-      border: 'border-zinc-700',
-      bg: 'bg-zinc-950/80',
-    },
-    {
-      suit: 'H',
-      symbol: '♥',
-      color: 'text-red-500',
-      border: 'border-red-900/60',
-      bg: 'bg-red-950/20',
-    },
-    {
-      suit: 'D',
-      symbol: '♦',
-      color: 'text-red-500',
-      border: 'border-red-900/60',
-      bg: 'bg-red-950/20',
-    },
-    {
-      suit: 'C',
-      symbol: '♣',
-      color: 'text-zinc-100',
-      border: 'border-zinc-700',
-      bg: 'bg-zinc-950/80',
-    },
+  // Suits config mapping matching design
+  const suitsList: { suit: Suit; symbol: string; isRed: boolean }[] = [
+    { suit: 'S', symbol: '♠', isRed: false },
+    { suit: 'H', symbol: '♥', isRed: true },
+    { suit: 'D', symbol: '♦', isRed: true },
+    { suit: 'C', symbol: '♣', isRed: false },
   ];
 
   const getExerciseForSuit = (suit: Suit) => {
@@ -90,122 +66,166 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
     return exercises.find((e) => e.suit === suit);
   };
 
+  // Calculate max tonnage/reps among suits to render progress bar percentages
+  const maxSuitTonnageOrReps = Math.max(
+    ...suitsList.map((s) => {
+      const reps = summary.suitReps[s.suit] || 0;
+      const load = config.loads[s.suit];
+      if (config.mode === 'KETTLEBELL' && load) {
+        return reps * load.kg * load.count;
+      }
+      return reps;
+    }),
+    1
+  );
+
   return (
-    <div className="w-full max-w-md mx-auto p-4 space-y-6 pb-20 select-none animate-in fade-in duration-300">
-      {/* Header Trophy Banner */}
-      <div className="text-center pt-4 space-y-2">
-        <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-red-600 to-amber-600 flex items-center justify-center text-white shadow-2xl shadow-red-950/80 border border-red-400/40">
-          <Award className="w-10 h-10" />
-        </div>
-        <h1 className="text-3xl font-black text-white tracking-tight">{t.congratulations}</h1>
-        <p className="text-xs text-zinc-400 max-w-xs mx-auto leading-relaxed">{t.congratsDesc}</p>
-        {config.beast && (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950/80 border border-red-600 text-red-400 text-xs font-bold uppercase mt-1">
-            <Flame className="w-3.5 h-3.5 fill-red-500" />
-            ★ BEAST MODE CLEARED
-          </div>
-        )}
-      </div>
-
-      {/* Main Stats Grid */}
-      <div className="grid grid-cols-2 gap-3">
-        <div className="bg-zinc-900/90 border border-zinc-800 p-4 rounded-3xl text-center shadow-lg">
-          <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-            {t.sessionTime}
-          </span>
-          <div className="text-2xl font-black text-white mt-1 tabular-nums">
-            {formatDuration(summary.durationSeconds)}
-          </div>
+    <div className="w-full max-w-md mx-auto px-4 pt-4 pb-12 space-y-6 select-none animate-in fade-in duration-300">
+      {/* 1. TOP HEADER TITLE */}
+      <div className="space-y-1">
+        <div className="font-display text-sm font-bold tracking-widest text-zinc-400 uppercase">
+          {lang === 'ru' ? 'ТРЕНИРОВКА ЗАВЕРШЕНА' : 'WORKOUT COMPLETED'}
         </div>
 
-        <div className="bg-zinc-900/90 border border-zinc-800 p-4 rounded-3xl text-center shadow-lg">
-          <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-            {t.cardsCompleted}
-          </span>
-          <div className="text-2xl font-black text-red-500 mt-1 tabular-nums">
-            {summary.completedCards} / {summary.totalCards}
-          </div>
-        </div>
-
-        <div className="bg-zinc-900/90 border border-zinc-800 p-4 rounded-3xl text-center shadow-lg">
-          <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-            {t.totalReps}
-          </span>
-          <div className="text-2xl font-black text-white mt-1 tabular-nums">
-            {summary.totalReps}
-          </div>
-        </div>
-
-        {summary.totalTonnageKg > 0 ? (
-          <div className="bg-zinc-900/90 border border-zinc-800 p-4 rounded-3xl text-center shadow-lg">
-            <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-              {t.totalTonnage}
-            </span>
-            <div className="text-2xl font-black text-amber-400 mt-1 tabular-nums">
-              {summary.totalTonnageKg} {lang === 'ru' ? 'кг' : 'kg'}
+        {/* Hero Tonnage Metric: e.g. 12 920 КГ */}
+        {config.mode === 'KETTLEBELL' && summary.totalTonnageKg > 0 ? (
+          <div className="pt-2">
+            <div className="font-display text-7xl sm:text-8xl font-black text-[#ece7db] tracking-tighter leading-none flex items-baseline gap-2">
+              <span>{summary.totalTonnageKg.toLocaleString()}</span>
+              <span className="text-3xl sm:text-4xl text-[#e85324] font-black">
+                {lang === 'ru' ? 'КГ' : 'KG'}
+              </span>
+            </div>
+            <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider mt-1">
+              {lang === 'ru' ? 'поднято за сессию' : 'lifted during session'}
             </div>
           </div>
         ) : (
-          <div className="bg-zinc-900/90 border border-zinc-800 p-4 rounded-3xl text-center shadow-lg">
-            <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">
-              {t.jokersCount}
-            </span>
-            <div className="text-2xl font-black text-emerald-400 mt-1 tabular-nums">
-              {summary.jokersCompleted}
+          <div className="pt-2">
+            <div className="font-display text-7xl sm:text-8xl font-black text-[#ece7db] tracking-tighter leading-none flex items-baseline gap-2">
+              <span>{summary.totalReps}</span>
+              <span className="text-3xl sm:text-4xl text-[#e85324] font-black">
+                {lang === 'ru' ? 'ПОВТ' : 'REPS'}
+              </span>
+            </div>
+            <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider mt-1">
+              {lang === 'ru' ? 'выполнено за сессию' : 'completed during session'}
             </div>
           </div>
         )}
       </div>
 
-      {/* Breakdown By Exercises / Suits */}
-      <div className="bg-zinc-900/80 border border-zinc-800 p-4 rounded-3xl space-y-3">
-        <div className="text-xs font-bold uppercase tracking-wider text-zinc-400">
-          {lang === 'ru' ? 'Повторения по упражнениям' : 'Reps by Exercise'}
+      <div className="w-full h-px bg-[#2b2722]" />
+
+      {/* 2. THREE KEY METRICS ROW: TIME / CARDS / REPS */}
+      <div className="grid grid-cols-3 gap-2 text-left">
+        <div>
+          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+            {formatDuration(summary.durationSeconds)}
+          </div>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+            {lang === 'ru' ? 'ВРЕМЯ' : 'TIME'}
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-2.5">
-          {suitsList.map((s) => {
-            const exercise = getExerciseForSuit(s.suit);
-            const exerciseName = exercise
-              ? lang === 'ru'
-                ? exercise.nameRu
-                : exercise.nameEn
-              : s.suit;
-            return (
-              <div
-                key={s.suit}
-                className={`${s.bg} border ${s.border} p-3 rounded-2xl flex flex-col justify-between`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className={`text-xl font-black ${s.color}`}>{s.symbol}</span>
-                  <span className="text-xl font-black text-white tabular-nums">
-                    {summary.suitReps[s.suit] || 0}
-                  </span>
-                </div>
-                <div className="text-xs font-bold text-zinc-200 mt-2 line-clamp-2 leading-tight">
-                  {exerciseName}
-                </div>
-              </div>
-            );
-          })}
+
+        <div>
+          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+            {summary.completedCards}
+          </div>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+            {lang === 'ru' ? 'КАРТЫ' : 'CARDS'}
+          </div>
+        </div>
+
+        <div>
+          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+            {summary.totalReps}
+          </div>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+            {lang === 'ru' ? 'ПОВТОРОВ' : 'REPS'}
+          </div>
         </div>
       </div>
 
-      {/* Buttons */}
-      <div className="space-y-3 pt-2">
+      <div className="w-full h-px bg-[#2b2722]" />
+
+      {/* 3. EXERCISE BREAKDOWN LIST WITH PROGRESS BARS MATCHING DESIGN */}
+      <div className="space-y-4">
+        {suitsList.map((s) => {
+          const exercise = getExerciseForSuit(s.suit);
+          const exerciseName = exercise
+            ? lang === 'ru'
+              ? exercise.nameRu
+              : exercise.nameEn
+            : s.suit;
+
+          const reps = summary.suitReps[s.suit] || 0;
+          const load = config.loads[s.suit];
+
+          const valueTonnage =
+            config.mode === 'KETTLEBELL' && load ? reps * load.kg * load.count : 0;
+
+          const percent = Math.min(
+            100,
+            Math.round(
+              ((config.mode === 'KETTLEBELL' ? valueTonnage : reps) / maxSuitTonnageOrReps) *
+                100
+            )
+          );
+
+          return (
+            <div key={s.suit} className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="text-lg font-black"
+                    style={{ color: s.isRed ? '#e85324' : '#f2efe9' }}
+                  >
+                    {s.symbol}
+                  </span>
+                  <span className="font-display text-base font-bold text-[#f2efe9] uppercase">
+                    {exerciseName}
+                  </span>
+                </div>
+
+                <div className="font-display text-base font-bold text-[#f2efe9] tabular-nums">
+                  {config.mode === 'KETTLEBELL' && valueTonnage > 0
+                    ? `${valueTonnage.toLocaleString()} ${lang === 'ru' ? 'кг' : 'kg'}`
+                    : `${reps} ${lang === 'ru' ? 'повт' : 'reps'}`}
+                </div>
+              </div>
+
+              {/* Individual exercise progress bar matching summary.png */}
+              <div className="w-full h-1.5 bg-[#1c1a17] rounded-full overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-500"
+                  style={{
+                    width: `${percent}%`,
+                    backgroundColor: s.isRed ? '#e85324' : '#ece7db',
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 4. ACTION BUTTONS MATCHING DESIGN IMAGE */}
+      <div className="space-y-2.5 pt-4">
+        {/* BIG ORANGE BUTTON: ЕЩЁ РАЗ */}
         <button
           onClick={onRestart}
-          className="w-full py-4 px-6 rounded-2xl bg-red-600 hover:bg-red-500 text-white font-black text-sm uppercase tracking-wider shadow-2xl shadow-red-950/80 border border-red-500/40 flex items-center justify-center gap-2 transition active:scale-98"
+          className="w-full py-4 px-6 rounded-2xl bg-[#e85324] hover:bg-[#d6471c] text-white font-display text-xl uppercase tracking-wider font-extrabold shadow-xl shadow-[#e85324]/20 flex items-center justify-center transition active:scale-[0.98]"
         >
-          <RotateCcw className="w-4 h-4" />
-          <span>{t.workoutAgain}</span>
+          {lang === 'ru' ? 'ЕЩЁ РАЗ' : 'AGAIN'}
         </button>
 
+        {/* SECONDARY BUTTON: НА ГЛАВНЫЙ */}
         <button
           onClick={onGoHome}
-          className="w-full py-3.5 px-6 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition active:scale-98"
+          className="w-full py-3.5 px-6 rounded-2xl bg-[#191715] hover:bg-[#221e1a] text-[#f2efe9] border border-[#2b2722] font-display text-lg uppercase tracking-wider font-bold flex items-center justify-center transition active:scale-[0.98]"
         >
-          <Home className="w-4 h-4" />
-          <span>{t.backToTable}</span>
+          {lang === 'ru' ? 'НА ГЛАВНЫЙ' : 'MAIN MENU'}
         </button>
       </div>
     </div>

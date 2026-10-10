@@ -148,3 +148,20 @@ export function createDeck(options: {
 
   return balanceDeckSafety(shuffledBase, false, rng);
 }
+
+export function getSideRuleNote(card: Card, exercise: { sideRule?: string }, lang: 'ru' | 'en' = 'ru'): string | null {
+  if (!exercise.sideRule || exercise.sideRule === 'NONE') return null;
+  if (exercise.sideRule === 'SPLIT_TOTAL') {
+    const left = Math.ceil(card.reps / 2);
+    const right = Math.floor(card.reps / 2);
+    return lang === 'ru'
+      ? `${card.reps} = ${left} левой + ${right} правой`
+      : `${card.reps} = ${left} left + ${right} right`;
+  }
+  if (exercise.sideRule === 'EACH_SIDE') {
+    return lang === 'ru'
+      ? `${card.reps} на каждую сторону (${card.reps * 2} всего)`
+      : `${card.reps} each side (${card.reps * 2} total)`;
+  }
+  return null;
+}
