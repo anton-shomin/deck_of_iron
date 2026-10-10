@@ -3,6 +3,7 @@ import { Exercise, SessionConfig, Suit } from '../../types';
 import { Language, translations } from '../../data/translations';
 import { formatDuration } from '../../engine/scoring';
 import { saveWorkoutToHistory } from '../../platform/storage';
+import { PrimaryButton, OutlineButton } from '../components/ui';
 
 interface SummaryScreenProps {
   summary: {
@@ -83,73 +84,73 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
     <div className="w-full max-w-md mx-auto px-4 pt-4 pb-12 space-y-6 select-none animate-in fade-in duration-300">
       {/* 1. TOP HEADER TITLE */}
       <div className="space-y-1">
-        <div className="font-display text-sm font-bold tracking-widest text-zinc-400 uppercase">
+        <div className="font-display text-sm font-bold tracking-widest text-[#9C9388] uppercase">
           {lang === 'ru' ? 'ТРЕНИРОВКА ЗАВЕРШЕНА' : 'WORKOUT COMPLETED'}
         </div>
 
-        {/* Hero Tonnage Metric: e.g. 12 920 КГ */}
+        {/* Hero Metric */}
         {config.mode === 'KETTLEBELL' && summary.totalTonnageKg > 0 ? (
           <div className="pt-2">
-            <div className="font-display text-7xl sm:text-8xl font-black text-[#ece7db] tracking-tighter leading-none flex items-baseline gap-2">
+            <div className="font-display text-7xl sm:text-8xl font-black text-[#F2EFE9] tracking-tighter leading-none flex items-baseline gap-2">
               <span>{summary.totalTonnageKg.toLocaleString()}</span>
-              <span className="text-3xl sm:text-4xl text-[#e85324] font-black">
+              <span className="text-3xl sm:text-4xl text-[#E85324] font-black">
                 {lang === 'ru' ? 'КГ' : 'KG'}
               </span>
             </div>
-            <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider mt-1">
+            <div className="text-xs text-[#9C9388] font-medium uppercase tracking-wider mt-1">
               {lang === 'ru' ? 'поднято за сессию' : 'lifted during session'}
             </div>
           </div>
         ) : (
           <div className="pt-2">
-            <div className="font-display text-7xl sm:text-8xl font-black text-[#ece7db] tracking-tighter leading-none flex items-baseline gap-2">
+            <div className="font-display text-7xl sm:text-8xl font-black text-[#F2EFE9] tracking-tighter leading-none flex items-baseline gap-2">
               <span>{summary.totalReps}</span>
-              <span className="text-3xl sm:text-4xl text-[#e85324] font-black">
+              <span className="text-3xl sm:text-4xl text-[#E85324] font-black">
                 {lang === 'ru' ? 'ПОВТ' : 'REPS'}
               </span>
             </div>
-            <div className="text-xs text-zinc-400 font-medium uppercase tracking-wider mt-1">
+            <div className="text-xs text-[#9C9388] font-medium uppercase tracking-wider mt-1">
               {lang === 'ru' ? 'выполнено за сессию' : 'completed during session'}
             </div>
           </div>
         )}
       </div>
 
-      <div className="w-full h-px bg-[#2b2722]" />
+      <div className="w-full h-px bg-[#2B2722]" />
 
-      {/* 2. THREE KEY METRICS ROW: TIME / CARDS / REPS */}
+      {/* 2. THREE KEY METRICS ROW */}
       <div className="grid grid-cols-3 gap-2 text-left">
         <div>
-          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+          <div className="font-display text-3xl font-black text-[#F2EFE9] tabular-nums leading-none">
             {formatDuration(summary.durationSeconds)}
           </div>
-          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#9C9388] mt-1">
             {lang === 'ru' ? 'ВРЕМЯ' : 'TIME'}
           </div>
         </div>
 
         <div>
-          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+          <div className="font-display text-3xl font-black text-[#F2EFE9] tabular-nums leading-none">
             {summary.completedCards}
           </div>
-          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#9C9388] mt-1">
             {lang === 'ru' ? 'КАРТЫ' : 'CARDS'}
           </div>
         </div>
 
         <div>
-          <div className="font-display text-3xl font-black text-[#f2efe9] tabular-nums leading-none">
+          <div className="font-display text-3xl font-black text-[#F2EFE9] tabular-nums leading-none">
             {summary.totalReps}
           </div>
-          <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mt-1">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#9C9388] mt-1">
             {lang === 'ru' ? 'ПОВТОРОВ' : 'REPS'}
           </div>
         </div>
       </div>
 
-      <div className="w-full h-px bg-[#2b2722]" />
+      <div className="w-full h-px bg-[#2B2722]" />
 
-      {/* 3. EXERCISE BREAKDOWN LIST WITH PROGRESS BARS MATCHING DESIGN */}
+      {/* 3. EXERCISE BREAKDOWN LIST WITH PROGRESS BARS */}
       <div className="space-y-4">
         {suitsList.map((s) => {
           const exercise = getExerciseForSuit(s.suit);
@@ -179,29 +180,29 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
                 <div className="flex items-center gap-2">
                   <span
                     className="text-lg font-black"
-                    style={{ color: s.isRed ? '#e85324' : '#f2efe9' }}
+                    style={{ color: s.isRed ? '#D92626' : '#F2EFE9' }}
                   >
                     {s.symbol}
                   </span>
-                  <span className="font-display text-base font-bold text-[#f2efe9] uppercase">
+                  <span className="font-display text-base font-bold text-[#F2EFE9] uppercase">
                     {exerciseName}
                   </span>
                 </div>
 
-                <div className="font-display text-base font-bold text-[#f2efe9] tabular-nums">
+                <div className="font-display text-base font-bold text-[#F2EFE9] tabular-nums">
                   {config.mode === 'KETTLEBELL' && valueTonnage > 0
                     ? `${valueTonnage.toLocaleString()} ${lang === 'ru' ? 'кг' : 'kg'}`
                     : `${reps} ${lang === 'ru' ? 'повт' : 'reps'}`}
                 </div>
               </div>
 
-              {/* Individual exercise progress bar matching summary.png */}
-              <div className="w-full h-1.5 bg-[#1c1a17] rounded-full overflow-hidden">
+              {/* Progress bar */}
+              <div className="w-full h-1.5 bg-[#1C1917] rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-500"
                   style={{
                     width: `${percent}%`,
-                    backgroundColor: s.isRed ? '#e85324' : '#ece7db',
+                    backgroundColor: s.isRed ? '#E85324' : '#E8E2D5',
                   }}
                 />
               </div>
@@ -210,23 +211,15 @@ export const SummaryScreen: React.FC<SummaryScreenProps> = ({
         })}
       </div>
 
-      {/* 4. ACTION BUTTONS MATCHING DESIGN IMAGE */}
+      {/* 4. ACTION BUTTONS */}
       <div className="space-y-2.5 pt-4">
-        {/* BIG ORANGE BUTTON: ЕЩЁ РАЗ */}
-        <button
-          onClick={onRestart}
-          className="w-full py-4 px-6 rounded-2xl bg-[#e85324] hover:bg-[#d6471c] text-white font-display text-xl uppercase tracking-wider font-extrabold shadow-xl shadow-[#e85324]/20 flex items-center justify-center transition active:scale-[0.98]"
-        >
+        <PrimaryButton onClick={onRestart}>
           {lang === 'ru' ? 'ЕЩЁ РАЗ' : 'AGAIN'}
-        </button>
+        </PrimaryButton>
 
-        {/* SECONDARY BUTTON: НА ГЛАВНЫЙ */}
-        <button
-          onClick={onGoHome}
-          className="w-full py-3.5 px-6 rounded-2xl bg-[#191715] hover:bg-[#221e1a] text-[#f2efe9] border border-[#2b2722] font-display text-lg uppercase tracking-wider font-bold flex items-center justify-center transition active:scale-[0.98]"
-        >
+        <OutlineButton onClick={onGoHome}>
           {lang === 'ru' ? 'НА ГЛАВНЫЙ' : 'MAIN MENU'}
-        </button>
+        </OutlineButton>
       </div>
     </div>
   );

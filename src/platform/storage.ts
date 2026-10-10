@@ -1,4 +1,4 @@
-import { SessionConfig, WorkoutHistoryEntry, Card, Preset } from '../types';
+import { SessionConfig, WorkoutHistoryEntry, Card, Preset, Suit } from '../types';
 
 const STORAGE_KEYS = {
   SETTINGS: 'deck_of_iron_settings_v1',

@@ -24,7 +24,7 @@ export const OfflineIndicator: React.FC<{ lang: Language }> = ({ lang }) => {
   const t = translations[lang];
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 max-w-sm mx-auto z-50 flex items-center justify-center gap-2 rounded-xl bg-amber-500/95 px-4 py-2 text-xs font-bold text-zinc-950 shadow-xl backdrop-blur-md">
+    <div className="fixed bottom-4 left-4 right-4 max-w-sm mx-auto z-50 flex items-center justify-center gap-2 rounded-2xl bg-[#E85324] px-4 py-3 text-xs font-bold text-white shadow-xl backdrop-blur-md">
       <WifiOff className="w-4 h-4 shrink-0 stroke-[2.5]" />
       <span>{t.offlineMode}</span>
     </div>

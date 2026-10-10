@@ -3,7 +3,7 @@ import { Play, Pause, CheckCircle2, Flame } from 'lucide-react';
 import { playCountdownBeep, playCountdownFinalBeep, playGong } from '../../platform/audio';
 import { triggerCountdownHaptic, triggerGongHaptic } from '../../platform/haptics';
 import { Language, translations } from '../../data/translations';
-import { getRedJokerDurations } from '../../engine/jokers';
+import { PrimaryButton } from './ui';
 
 interface RedJokerModalProps {
   beast: boolean;
@@ -79,17 +79,17 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-between bg-zinc-950/98 p-6 text-white animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-between bg-[#12100E]/98 p-6 text-[#F2EFE9] animate-in zoom-in-95 duration-200">
       {/* Top Header */}
       <div className="w-full max-w-sm pt-4 text-center">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950/80 border border-red-600/60 text-red-400 text-xs font-black tracking-widest uppercase mb-2">
-          <Flame className="w-4 h-4 fill-red-500 text-red-500 animate-pulse" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E85324]/15 border border-[#E85324]/40 text-[#E85324] text-xs font-black tracking-widest uppercase mb-2">
+          <Flame className="w-4 h-4 fill-[#E85324] text-[#E85324] animate-pulse" />
           <span>{t.redJokerTitle}</span>
         </div>
-        <h2 className="text-2xl font-black text-white tracking-tight">
+        <h2 className="font-display text-3xl font-black text-white tracking-wider uppercase">
           {lang === 'ru' ? 'Планка на предплечьях' : 'Forearm Plank'}
         </h2>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-950/80 border border-red-600/60 text-xs font-black text-red-400 mt-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181614] border border-[#2B2722] text-xs font-bold text-[#9C9388] mt-2">
           <span>{selectedDuration >= 60 ? `${Math.round(selectedDuration / 60)} ${t.minutesShort}` : `${selectedDuration} ${t.secondsShort}`}</span>
           {beast && <span>• BEAST MODE</span>}
         </div>
@@ -103,7 +103,7 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
               cx="50"
               cy="50"
               r="44"
-              className="text-zinc-900"
+              className="text-[#2B2722]"
               strokeWidth="6"
               stroke="currentColor"
               fill="transparent"
@@ -112,7 +112,7 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
               cx="50"
               cy="50"
               r="44"
-              className="text-red-500 transition-all duration-300 ease-linear"
+              className="text-[#E85324] transition-all duration-300 ease-linear"
               strokeWidth="6"
               strokeDasharray={276.46}
               strokeDashoffset={276.46 * (1 - progress / 100)}
@@ -123,10 +123,10 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
           </svg>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-6xl sm:text-7xl font-black tracking-tighter tabular-nums select-none">
+            <span className="font-display text-6xl sm:text-7xl font-black tracking-tighter tabular-nums select-none text-white">
               {timeFormatted}
             </span>
-            <span className="text-xs uppercase font-extrabold tracking-widest text-zinc-400 mt-2">
+            <span className="text-xs uppercase font-extrabold tracking-widest text-[#9C9388] mt-2">
               {isFinished
                 ? t.plankDone
                 : isRunning
@@ -144,13 +144,8 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
       {/* Bottom Controls */}
       <div className="w-full max-w-sm pb-6 space-y-3">
         {!isFinished ? (
-          <button
+          <PrimaryButton
             onClick={isRunning ? pauseTimer : startTimer}
-            className={`w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-black text-sm uppercase tracking-wider shadow-xl transition active:scale-98 ${
-              isRunning
-                ? 'bg-zinc-900 border border-zinc-700 text-zinc-200'
-                : 'bg-red-600 hover:bg-red-500 text-white shadow-red-950/60'
-            }`}
           >
             {isRunning ? (
               <>
@@ -163,25 +158,25 @@ export const RedJokerModal: React.FC<RedJokerModalProps> = ({
                 <span>{t.startPlank}</span>
               </>
             )}
-          </button>
+          </PrimaryButton>
         ) : (
           <button
             onClick={onComplete}
-            className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider shadow-xl shadow-emerald-950/60 transition active:scale-98"
+            className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-display text-xl uppercase font-extrabold tracking-wider shadow-xl transition active:scale-98"
           >
             <CheckCircle2 className="w-5 h-5" />
             <span>{t.completeTask}</span>
           </button>
         )}
 
-        {/* Premature finish / pass button if needed */}
+        {/* Complete Early */}
         {!isFinished && (
           <button
             onClick={() => {
               playGong();
               onComplete();
             }}
-            className="w-full text-center text-xs font-semibold text-zinc-400 hover:text-zinc-200 transition py-1"
+            className="w-full text-center text-xs font-semibold text-[#9C9388] hover:text-[#F2EFE9] transition py-1"
           >
             {lang === 'ru' ? 'Зачесть досрочно' : 'Complete Early'}
           </button>
