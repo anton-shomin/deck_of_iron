@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.DeckOfIron" parent="Theme.AppCompat.NoActionBar">
+    <item name="android:windowBackground">@color/bg_app</item>
+    <item name="colorPrimary">@color/ember</item>
+    <item name="colorAccent">@color/ember</item>
+  </style>
+
+  <color name="bg_app">#12100E</color>
+  <color name="ember">#E85324</color>
+</resources>

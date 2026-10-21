@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bone playing card with an ember spade, ported from public/icon.svg (512 grid scaled into the 108dp adaptive canvas). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="108dp"
+  android:height="108dp"
+  android:viewportWidth="108"
+  android:viewportHeight="108">
+  <group
+    android:scaleX="0.16"
+    android:scaleY="0.16"
+    android:translateX="13.04"
+    android:translateY="10.8">
+    <path
+      android:fillColor="#E8E2D5"
+      android:pathData="M164,116 L348,116 A28,28 0,0 1,376 144 L376,408 A28,28 0,0 1,348 436 L164,436 A28,28 0,0 1,136 408 L136,144 A28,28 0,0 1,164 116 Z" />
+    <path
+      android:fillColor="#E85324"
+      android:pathData="M256,160 C240,210 185,242 185,285 C185,320 215,340 246,325 C242,345 235,365 220,380 L292,380 C277,365 270,345 266,325 C297,340 327,320 327,285 C327,242 272,210 256,160 Z" />
+  </group>
+</vector>

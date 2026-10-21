@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Top bar -->
+  <string name="cd_language">Change language</string>
+  <string name="cd_sound_on">Sound on</string>
+  <string name="cd_sound_off">Sound off</string>
+  <string name="cd_history">Workout history</string>
+  <string name="cd_back">Back</string>
+  <string name="cd_info">Technique &amp; guide</string>
+  <string name="cd_quit">Quit workout</string>
+  <string name="cd_sync">Sync</string>
+  <string name="cd_pause">Pause</string>
+  <string name="cd_resume">Resume</string>
+
+  <!-- Setup -->
+  <string name="section_mode">MODE</string>
+  <string name="section_presets">PRESETS</string>
+  <string name="section_exercises">EXERCISES BY SUIT</string>
+  <string name="section_jokers">JOKERS</string>
+  <string name="mode_body">Calisthenics</string>
+  <string name="mode_kettlebell">Kettlebells</string>
+  <string name="mode_custom">Custom deck</string>
+  <string name="suit_spades">Spades ♠ (Chest / Shoulders)</string>
+  <string name="suit_hearts">Hearts ♥ (Quads / Squats)</string>
+  <string name="suit_diamonds">Diamonds ♦ (Posterior Chain)</string>
+  <string name="suit_clubs">Clubs ♣ (Core / Abs)</string>
+  <string name="beast_mode_desc">Extreme challenges for the jokers</string>
+  <string name="deck_settings_summary">Jokers: %1$d • Ace: %2$d • Rest: %3$s</string>
+  <string name="deal_deck">DEAL THE DECK</string>
+  <string name="deck_totals">%1$s • %2$s</string>
+  <string name="deck_totals_tonnage">%1$s • %2$s • %3$s</string>
+  <string name="change">Change</string>
+  <string name="close">Close</string>
+  <string name="cancel">Cancel</string>
+
+  <!-- Deck settings -->
+  <string name="deck_settings_title">DECK SETTINGS</string>
+  <string name="ace_value">Ace value</string>
+  <string name="jokers_count">Jokers</string>
+  <string name="rest_interval">Rest between cards</string>
+  <string name="rest_manual">Manual</string>
+
+  <!-- Exercises -->
+  <string name="tier">Tier %1$d</string>
+  <string name="equipment_body">BODYWEIGHT</string>
+  <string name="equipment_kettlebell">KETTLEBELL</string>
+  <string name="kettlebell_weight">Kettlebell weight</string>
+  <string name="bell_count">Kettlebell count</string>
+  <string name="one_bell">1 bell</string>
+  <string name="two_bells">2 bells</string>
+  <string name="muscles">Target muscles</string>
+  <string name="technique_cues">Key technique cues</string>
+  <string name="common_mistake">Common mistake</string>
+  <string name="watch_youtube">Search technique on YouTube</string>
+
+  <!-- Jokers -->
+  <string name="joker">JOKER</string>
+  <string name="joker_red">Red joker</string>
+  <string name="joker_black">Black joker</string>
+  <string name="joker_settings_title">JOKER TASKS</string>
+  <string name="joker_settings_hint">Any task can go on either joker in any mode — bodyweight or kettlebell.</string>
+  <string name="joker_one_random_hint">With one joker its colour is drawn at random.</string>
+  <string name="joker_task_plank">Plank</string>
+  <string name="joker_task_wall_sit">Wall sit</string>
+  <string name="joker_task_burpees">Burpees</string>
+  <string name="joker_task_thrusters">Thrusters</string>
+  <string name="joker_task_suit_reps">15 suit reps</string>
+  <string name="joker_title_plank">Forearm plank</string>
+  <string name="joker_title_wall_sit">Wall sit hold</string>
+  <string name="joker_title_burpees">Burpees</string>
+  <string name="joker_title_thrusters">Kettlebell thrusters</string>
+  <string name="joker_title_suit_reps">15 reps: %1$s</string>
+  <string name="joker_title_suit_random">15 reps of a random suit</string>
+  <string name="joker_desc_plank">Straight line from head to heels, elbows under the shoulders.</string>
+  <string name="joker_desc_wall_sit">Back flat on the wall, knees at 90°, hands off your legs.</string>
+  <string name="joker_desc_burpees">Explosive chest-to-floor burpees.</string>
+  <string name="joker_desc_thrusters">Kettlebell front squat into an overhead press in one motion.</string>
+  <string name="joker_desc_suit_reps">Strict reps of this suit\'s exercise.</string>
+  <string name="joker_tap_to_start">Tap to start</string>
+  <string name="joker_swap_task">Swap task</string>
+  <string name="joker_kettlebell_badge">KETTLEBELL</string>
+  <string name="duration">Duration</string>
+  <string name="reps_label">Reps</string>
+  <string name="suit_label">Suit</string>
+  <string name="suit_random">Random</string>
+  <string name="task_tonnage">Task tonnage</string>
+  <string name="hold_start">START</string>
+  <string name="hold_pause">PAUSE</string>
+  <string name="hold_ready">Ready</string>
+  <string name="hold_running">Hold tight!</string>
+  <string name="hold_done">DONE!</string>
+  <string name="complete_early">Complete early</string>
+  <string name="complete_task">TASK COMPLETED</string>
+
+  <!-- Units -->
+  <string name="kg_value">%1$s kg</string>
+  <string name="kg_double">2×%1$d kg</string>
+  <string name="seconds_value">%1$d s</string>
+  <string name="minutes_value">%1$d min</string>
+  <string name="reps_short">%1$d reps</string>
+
+  <!-- Workout -->
+  <string name="done_next">DONE / NEXT CARD</string>
+  <string name="tonnage">Tonnage</string>
+  <string name="reps_total">Reps</string>
+  <string name="rest_title">RESTING</string>
+  <string name="skip_rest">SKIP REST</string>
+  <string name="paused">Paused</string>
+  <string name="quit_title">Quit workout early?</string>
+  <string name="quit_desc">Completed cards will be saved to history.</string>
+  <string name="stay">Keep going</string>
+  <string name="quit_now">Quit now</string>
+  <string name="cluster_tip">Cluster: %1$s (%2$d s rest)</string>
+  <string name="cluster_tip_no_rest">Cluster: %1$s</string>
+  <string name="breakdown_split">%1$d = %2$d left + %3$d right</string>
+  <string name="breakdown_split_uneven">%1$d = %2$d left + %3$d right (weaker side +1)</string>
+  <string name="breakdown_per_side">%1$d per side (%2$d total)</string>
+  <string name="breakdown_navy_seal">%1$s (%2$s)</string>
+
+  <!-- Summary -->
+  <string name="workout_completed">WORKOUT COMPLETED</string>
+  <string name="workout_stopped">WORKOUT STOPPED</string>
+  <string name="kg_upper">KG</string>
+  <string name="reps_upper">REPS</string>
+  <string name="lifted_caption">lifted during session</string>
+  <string name="completed_caption">completed during session</string>
+  <string name="metric_time">TIME</string>
+  <string name="metric_cards">CARDS</string>
+  <string name="metric_reps">REPS</string>
+  <string name="metric_jokers">JOKERS</string>
+  <string name="again">AGAIN</string>
+  <string name="main_menu">MAIN MENU</string>
+
+  <!-- History -->
+  <string name="history_title">Workout history</string>
+  <string name="history_empty">No recorded sessions yet. Deal your first deck!</string>
+  <string name="history_clear">Clear history</string>
+  <string name="history_clear_title">Clear all history?</string>
+  <string name="history_clear_desc">Workouts will be deleted from this device and from the cloud.</string>
+  <string name="history_clear_confirm">Delete</string>
+  <string name="history_total_reps">Reps</string>
+  <string name="history_total_tonnage">Tonnage</string>
+  <string name="history_total_time">Time</string>
+  <string name="history_cards">%1$d / %2$d</string>
+  <string name="history_pending">Waiting to upload</string>
+  <string name="sync_disabled">Cloud not configured — history stays on this device</string>
+  <string name="sync_idle">Supabase cloud storage</string>
+  <string name="sync_syncing">Syncing…</string>
+  <string name="sync_synced">Synced at %1$s</string>
+  <string name="sync_failed">Sync failed: %1$s</string>
+  <string name="summary_saved_local">Saved on this device</string>
+  <string name="summary_saved_cloud">Saved to the cloud</string>
+  <string name="summary_saving">Saving to the cloud…</string>
+  <string name="summary_save_failed">Saved on this device, will upload later</string>
+  <string name="summary_not_saved">Could not save the workout</string>
+
+  <plurals name="cards_count">
+    <item quantity="one">%d card</item>
+    <item quantity="other">%d cards</item>
+  </plurals>
+  <plurals name="reps_count">
+    <item quantity="one">%d rep</item>
+    <item quantity="other">%d reps</item>
+  </plurals>
+  <plurals name="reps_word">
+    <item quantity="one">rep</item>
+    <item quantity="other">reps</item>
+  </plurals>
+  <plurals name="workouts_count">
+    <item quantity="one">%d session</item>
+    <item quantity="other">%d sessions</item>
+  </plurals>
+  <plurals name="cycles_count">
+    <item quantity="one">%d cycle</item>
+    <item quantity="other">%d cycles</item>
+  </plurals>
+  <plurals name="push_ups_count">
+    <item quantity="one">%d push-up</item>
+    <item quantity="other">%d push-ups</item>
+  </plurals>
+</resources>
