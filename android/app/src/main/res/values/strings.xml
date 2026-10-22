@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ru">
+  <string name="app_name" translatable="false">DECK OF IRON</string>
+  <string name="beast_mode" translatable="false">BEAST MODE</string>
+
+  <!-- Top bar -->
+  <string name="cd_language">Сменить язык</string>
+  <string name="cd_sound_on">Звук включён</string>
+  <string name="cd_sound_off">Звук выключен</string>
+  <string name="cd_history">История тренировок</string>
+  <string name="cd_back">Назад</string>
+  <string name="cd_info">Техника и справка</string>
+  <string name="cd_quit">Завершить тренировку</string>
+  <string name="cd_sync">Синхронизировать</string>
+  <string name="cd_pause">Пауза</string>
+  <string name="cd_resume">Продолжить</string>
+
+  <!-- Setup -->
+  <string name="section_mode">РЕЖИМ</string>
+  <string name="section_presets">ГОТОВЫЕ ПРОГРАММЫ</string>
+  <string name="section_exercises">УПРАЖНЕНИЯ ПО МАСТЯМ</string>
+  <string name="section_jokers">ДЖОКЕРЫ</string>
+  <string name="mode_body">Калистеника</string>
+  <string name="mode_kettlebell">Гири</string>
+  <string name="mode_custom">Своя колода</string>
+  <string name="suit_spades">Пики ♠ (Грудь / Плечи)</string>
+  <string name="suit_hearts">Червы ♥ (Квадрицепс / Присед)</string>
+  <string name="suit_diamonds">Бубны ♦ (Задняя цепь / Спина)</string>
+  <string name="suit_clubs">Трефы ♣ (Кор / Пресс)</string>
+  <string name="beast_mode_desc">Экстремальные испытания для джокеров</string>
+  <string name="deck_settings_summary">Джокеры: %1$d • Туз: %2$d • Отдых: %3$s</string>
+  <string name="deal_deck">РАЗДАТЬ КОЛОДУ</string>
+  <string name="deck_totals">%1$s • %2$s</string>
+  <string name="deck_totals_tonnage">%1$s • %2$s • %3$s</string>
+  <string name="change">Сменить</string>
+  <string name="close">Закрыть</string>
+  <string name="cancel">Отмена</string>
+
+  <!-- Deck settings -->
+  <string name="deck_settings_title">НАСТРОЙКИ КОЛОДЫ</string>
+  <string name="ace_value">Номинал туза</string>
+  <string name="jokers_count">Джокеры</string>
+  <string name="rest_interval">Отдых между картами</string>
+  <string name="rest_manual">Вручную</string>
+
+  <!-- Exercises -->
+  <string name="tier">Уровень %1$d</string>
+  <string name="equipment_body">СВОЙ ВЕС</string>
+  <string name="equipment_kettlebell">ГИРИ</string>
+  <string name="kettlebell_weight">Вес гири</string>
+  <string name="bell_count">Количество гирь</string>
+  <string name="one_bell">1 гиря</string>
+  <string name="two_bells">2 гири</string>
+  <string name="muscles">Задействованные мышцы</string>
+  <string name="technique_cues">Фокусы техники</string>
+  <string name="common_mistake">Главная ошибка</string>
+  <string name="watch_youtube">Смотреть технику на YouTube</string>
+
+  <!-- Jokers -->
+  <string name="joker">ДЖОКЕР</string>
+  <string name="joker_red">Красный джокер</string>
+  <string name="joker_black">Чёрный джокер</string>
+  <string name="joker_settings_title">ЗАДАНИЯ ДЖОКЕРОВ</string>
+  <string name="joker_settings_hint">Любое задание можно назначить на любой джокер в любом режиме — со своим весом или с гирями.</string>
+  <string name="joker_one_random_hint">С одним джокером его цвет выпадает случайно.</string>
+  <string name="joker_task_plank">Планка</string>
+  <string name="joker_task_wall_sit">Стульчик</string>
+  <string name="joker_task_burpees">Бёрпи</string>
+  <string name="joker_task_thrusters">Трастеры</string>
+  <string name="joker_task_suit_reps">15 повт. масти</string>
+  <string name="joker_title_plank">Планка на предплечьях</string>
+  <string name="joker_title_wall_sit">Упражнение «Стульчик»</string>
+  <string name="joker_title_burpees">Бёрпи</string>
+  <string name="joker_title_thrusters">Трастеры с гирями</string>
+  <string name="joker_title_suit_reps">15 повторений: %1$s</string>
+  <string name="joker_title_suit_random">15 повторений случайной масти</string>
+  <string name="joker_desc_plank">Прямая линия от затылка до пяток, локти под плечами.</string>
+  <string name="joker_desc_wall_sit">Спина прижата к стене, колени под 90°, руки не опираются на ноги.</string>
+  <string name="joker_desc_burpees">Взрывные бёрпи с касанием грудью пола.</string>
+  <string name="joker_desc_thrusters">Фронтальный присед с гирями и жим над головой одним движением.</string>
+  <string name="joker_desc_suit_reps">Строгие повторения упражнения этой масти.</string>
+  <string name="joker_tap_to_start">Нажмите для старта</string>
+  <string name="joker_swap_task">Заменить задание</string>
+  <string name="joker_kettlebell_badge">С ГИРЯМИ</string>
+  <string name="duration">Время</string>
+  <string name="reps_label">Повторения</string>
+  <string name="suit_label">Масть</string>
+  <string name="suit_random">Случайная</string>
+  <string name="task_tonnage">Тоннаж задания</string>
+  <string name="hold_start">СТАРТ</string>
+  <string name="hold_pause">ПАУЗА</string>
+  <string name="hold_ready">Готов к старту</string>
+  <string name="hold_running">Держи форму!</string>
+  <string name="hold_done">ВЫПОЛНЕНО!</string>
+  <string name="complete_early">Зачесть досрочно</string>
+  <string name="complete_task">ЗАДАНИЕ ВЫПОЛНЕНО</string>
+
+  <!-- Units -->
+  <string name="kg_value">%1$s кг</string>
+  <string name="kg_double">2×%1$d кг</string>
+  <string name="seconds_value">%1$d с</string>
+  <string name="minutes_value">%1$d мин</string>
+  <string name="reps_short">%1$d повт</string>
+
+  <!-- Workout -->
+  <string name="done_next">ГОТОВО / СЛЕДУЮЩАЯ</string>
+  <string name="tonnage">Тоннаж</string>
+  <string name="reps_total">Повторения</string>
+  <string name="rest_title">ОТДЫХ</string>
+  <string name="skip_rest">ПРОПУСТИТЬ ОТДЫХ</string>
+  <string name="paused">Пауза</string>
+  <string name="quit_title">Завершить тренировку досрочно?</string>
+  <string name="quit_desc">Выполненные карты сохранятся в истории.</string>
+  <string name="stay">Остаться</string>
+  <string name="quit_now">Завершить</string>
+  <string name="cluster_tip">Кластер: %1$s (отдых %2$d с)</string>
+  <string name="cluster_tip_no_rest">Кластер: %1$s</string>
+  <string name="breakdown_split">%1$d = %2$d левой + %3$d правой</string>
+  <string name="breakdown_split_uneven">%1$d = %2$d левой + %3$d правой (слабая сторона +1)</string>
+  <string name="breakdown_per_side">%1$d на каждую сторону (всего %2$d)</string>
+  <string name="breakdown_navy_seal">%1$s (%2$s)</string>
+
+  <!-- Summary -->
+  <string name="workout_completed">ТРЕНИРОВКА ЗАВЕРШЕНА</string>
+  <string name="workout_stopped">ТРЕНИРОВКА ОСТАНОВЛЕНА</string>
+  <string name="kg_upper">КГ</string>
+  <string name="reps_upper">ПОВТ</string>
+  <string name="lifted_caption">поднято за сессию</string>
+  <string name="completed_caption">выполнено за сессию</string>
+  <string name="metric_time">ВРЕМЯ</string>
+  <string name="metric_cards">КАРТЫ</string>
+  <string name="metric_reps">ПОВТОРОВ</string>
+  <string name="metric_jokers">ДЖОКЕРЫ</string>
+  <string name="again">ЕЩЁ РАЗ</string>
+  <string name="main_menu">НА ГЛАВНЫЙ</string>
+
+  <!-- History -->
+  <string name="history_title">История тренировок</string>
+  <string name="history_empty">История тренировок пока пуста. Раздайте первую колоду!</string>
+  <string name="history_clear">Очистить историю</string>
+  <string name="history_clear_title">Очистить всю историю?</string>
+  <string name="history_clear_desc">Тренировки удалятся с этого устройства и из облака.</string>
+  <string name="history_clear_confirm">Удалить</string>
+  <string name="history_total_reps">Повторений</string>
+  <string name="history_total_tonnage">Тоннаж</string>
+  <string name="history_total_time">Время</string>
+  <string name="history_cards">%1$d / %2$d</string>
+  <string name="history_pending">Ждёт отправки</string>
+  <string name="sync_disabled">Облако не настроено — история хранится на устройстве</string>
+  <string name="sync_idle">Облачное хранилище Supabase</string>
+  <string name="sync_syncing">Синхронизация…</string>
+  <string name="sync_synced">Синхронизировано в %1$s</string>
+  <string name="sync_failed">Ошибка синхронизации: %1$s</string>
+  <string name="summary_saved_local">Сохранено на устройстве</string>
+  <string name="summary_saved_cloud">Сохранено в облаке</string>
+  <string name="summary_saving">Сохраняем в облако…</string>
+  <string name="summary_save_failed">Сохранено на устройстве, в облако отправим позже</string>
+  <string name="summary_not_saved">Не удалось сохранить тренировку</string>
+
+  <plurals name="cards_count">
+    <item quantity="one">%d карта</item>
+    <item quantity="few">%d карты</item>
+    <item quantity="many">%d карт</item>
+    <item quantity="other">%d карты</item>
+  </plurals>
+  <plurals name="reps_count">
+    <item quantity="one">%d повторение</item>
+    <item quantity="few">%d повторения</item>
+    <item quantity="many">%d повторений</item>
+    <item quantity="other">%d повторения</item>
+  </plurals>
+  <plurals name="reps_word" tools:ignore="ImpliedQuantity">
+    <item quantity="one">повторение</item>
+    <item quantity="few">повторения</item>
+    <item quantity="many">повторений</item>
+    <item quantity="other">повторения</item>
+  </plurals>
+  <plurals name="workouts_count">
+    <item quantity="one">%d тренировка</item>
+    <item quantity="few">%d тренировки</item>
+    <item quantity="many">%d тренировок</item>
+    <item quantity="other">%d тренировки</item>
+  </plurals>
+  <plurals name="cycles_count">
+    <item quantity="one">%d цикл</item>
+    <item quantity="few">%d цикла</item>
+    <item quantity="many">%d циклов</item>
+    <item quantity="other">%d цикла</item>
+  </plurals>
+  <plurals name="push_ups_count">
+    <item quantity="one">%d отжимание</item>
+    <item quantity="few">%d отжимания</item>
+    <item quantity="many">%d отжиманий</item>
+    <item quantity="other">%d отжимания</item>
+  </plurals>
+</resources>
